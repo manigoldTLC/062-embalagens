@@ -1,0 +1,124 @@
+// src/app/categoria/[categorySlug]/categoriaPage.module.scss
+@import '../../../styles/variables'; // Ajuste o caminho
+
+.categoryPageContainer {
+	max-width: $container-max-width-xl;
+	margin: $spacer-lg auto;
+	padding: 0 $spacer-md;
+}
+
+.breadcrumb {
+	font-size: $font-size-sm;
+	color: $neutral-medium;
+	margin-bottom: $spacer-lg;
+
+	a {
+		color: $link-color;
+
+		&:hover {
+			color: $link-hover-color;
+		}
+	}
+
+	span {
+		font-weight: $font-weight-medium;
+		color: $neutral-dark;
+	}
+}
+
+.pageHeader {
+	text-align: center;
+	margin-bottom: $spacer-xl;
+
+	h1 {
+		font-size: $h1-font-size * 0.9; // H1 da categoria
+		color: $primary-color-dark;
+		margin-bottom: $spacer-sm;
+	}
+
+	p {
+		// Descrição da categoria
+		font-size: $font-size-lg;
+		color: $neutral-dark;
+		max-width: 75ch;
+		margin-left: auto;
+		margin-right: auto;
+		line-height: 1.7;
+	}
+}
+
+.subCategoryNav {
+	// Estilos para a lista de subcategorias (se implementada com links)
+	margin-bottom: $spacer-lg;
+	padding-bottom: $spacer-md;
+	border-bottom: 1px solid $border-color;
+
+	ul {
+		list-style: none;
+		padding: 0;
+		margin: 0;
+		display: flex;
+		flex-wrap: wrap;
+		gap: $spacer-sm;
+		justify-content: center;
+	}
+
+	span,
+	a {
+		// Se for usar links para subcategorias
+		display: inline-block;
+		padding: $spacer-xs $spacer-md;
+		color: $neutral-dark;
+		font-size: $font-size-base;
+		// background-color: $neutral-ultra-light;
+		// border: 1px solid $neutral-light;
+		// border-radius: $border-radius-sm;
+	}
+}
+
+.productsGrid {
+	// Reutilizar estilos da página de produtos
+	display: grid;
+	gap: $spacer-lg;
+	grid-template-columns: 1fr;
+
+	@include media-breakpoint-up(sm) {
+		grid-template-columns: repeat(2, 1fr);
+	}
+
+	@include media-breakpoint-up(md) {
+		grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+	}
+}
+
+.noProducts,
+.notFoundContainer {
+	// Estilos para mensagens
+	text-align: center;
+	font-size: $font-size-lg;
+	color: $neutral-medium;
+	padding: $spacer-xxl 0;
+}
+
+.notFoundContainer {
+	h1 {
+		color: $primary-color-dark;
+		margin-bottom: $spacer-md;
+	}
+
+	p {
+		margin-bottom: $spacer-lg;
+	}
+
+	a {
+		@include button-base;
+		background-color: $primary-color; // Estilo do botão
+		color: $text-color-on-primary;
+		border-color: $primary-color;
+
+		&:hover {
+			background-color: $primary-color-dark;
+			border-color: $primary-color-dark;
+		}
+	}
+}

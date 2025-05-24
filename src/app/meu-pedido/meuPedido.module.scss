@@ -1,0 +1,377 @@
+@import '../../styles/variables';
+
+.meuPedidoContainer {
+	max-width: $container-max-width-lg;
+	margin: $spacer-lg auto $spacer-xxl auto;
+	padding: $spacer-md;
+}
+
+.pageHeader {
+	text-align: center;
+	margin-bottom: $spacer-xl;
+
+	h1 {
+		font-size: $h2-font-size;
+		color: $primary-color-dark;
+		margin-bottom: $spacer-xs;
+	}
+
+	p {
+		font-size: $font-size-base;
+		color: $neutral-dark;
+	}
+}
+
+.cartItemsList {
+	margin-bottom: $spacer-xl;
+}
+
+.cartItem {
+	display: grid;
+	grid-template-columns: 80px 1fr 100px 100px 40px;
+	gap: $spacer-md;
+	align-items: center;
+	padding: $spacer-md 0;
+	border-bottom: 1px solid $border-color;
+
+	&:last-child {
+		border-bottom: none;
+	}
+}
+
+.itemImage {
+	width: 80px;
+	height: 80px;
+	border-radius: $border-radius-sm;
+	overflow: hidden;
+	background-color: $neutral-ultra-light;
+
+	img {
+		display: block;
+		width: 100%;
+		height: 100%;
+	}
+}
+
+.itemDetails {
+	.itemName {
+		font-size: $font-size-base;
+		font-weight: $font-weight-medium;
+		color: $neutral-darkest;
+		text-decoration: none;
+		display: block;
+		margin-bottom: $spacer-xs / 2;
+
+		&:hover {
+			color: $primary-color;
+			text-decoration: underline;
+		}
+	}
+
+	.itemSelectedColor {
+		display: block;
+		font-size: $font-size-sm * 0.9;
+		color: $neutral-medium;
+		margin-top: $spacer-xs / 3;
+	}
+
+	.itemPrice {
+		font-size: $font-size-sm;
+		color: $neutral-medium;
+	}
+}
+
+.itemQuantity {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+	.quantityInput {
+		width: 60px;
+		padding: $spacer-xs;
+		text-align: center;
+		border: 1px solid $border-color;
+		border-radius: $border-radius-sm;
+		font-size: $font-size-base;
+		-moz-appearance: textfield;
+		appearance: textfield;
+
+		&::-webkit-outer-spin-button,
+		&::-webkit-inner-spin-button {
+			-webkit-appearance: none;
+			margin: 0;
+		}
+
+		&:focus {
+			outline: none;
+			border-color: $primary-color;
+			box-shadow: 0 0 0 2px rgba($primary-color, 0.2);
+		}
+	}
+}
+
+.itemSubtotal {
+	font-size: $font-size-base;
+	font-weight: $font-weight-semibold; // Destacando um pouco mais o subtotal
+	text-align: right;
+	min-width: 80px;
+	color: $neutral-darkest;
+}
+
+.removeItemButton {
+	background: none;
+	border: none;
+	color: $error-color;
+	font-size: 1.5rem;
+	font-weight: $font-weight-bold;
+	cursor: pointer;
+	padding: $spacer-xs;
+	line-height: 1;
+	border-radius: $border-radius-sm;
+	justify-self: center;
+
+	&:hover {
+		color: darken($error-color, 10%);
+		background-color: lighten($error-color, 38%);
+	}
+}
+
+.cartSummary {
+	margin-top: $spacer-xl;
+	padding-top: $spacer-lg;
+	border-top: 2px solid $primary-color;
+	display: flex;
+	flex-direction: column;
+	align-items: flex-end;
+
+	@include media-breakpoint-down(sm) {
+		align-items: stretch;
+	}
+}
+
+.summaryActions {
+	width: 100%;
+	display: flex;
+	justify-content: flex-end;
+	margin-bottom: $spacer-md;
+
+	@include media-breakpoint-down(sm) {
+		justify-content: center;
+		margin-bottom: $spacer-lg;
+	}
+}
+
+.summaryTotals {
+	width: 100%;
+	max-width: 400px; // Aumentar um pouco para acomodar os botões
+	text-align: right;
+
+	@include media-breakpoint-down(sm) {
+		text-align: center;
+		max-width: 100%;
+	}
+
+	p {
+		font-size: $font-size-base;
+		margin-bottom: $spacer-sm;
+
+		strong {
+			font-weight: $font-weight-bold;
+		}
+	}
+
+	.grandTotal {
+		font-size: $font-size-lg * 1.1; // Um pouco maior
+		font-weight: $font-weight-bold;
+		color: $primary-color-dark;
+		margin-bottom: $spacer-md; // Ajustar margem para os botões de finalização
+	}
+}
+
+.finalizeActions {
+	display: flex;
+	flex-direction: column;
+	gap: $spacer-sm;
+	margin-top: $spacer-sm; // Pequeno espaço acima dos botões de finalização
+	width: 100%;
+
+	@include media-breakpoint-up(xs) {
+		// Em telas um pouco maiores (acima de mobile bem pequeno)
+		flex-direction: row; // Coloca os botões lado a lado
+		justify-content: flex-end; // Alinha à direita no desktop
+
+		button {
+			width: auto; // Permite que os botões tenham larguras diferentes
+			flex-grow: 1; // Faz com que dividam o espaço se necessário
+
+			&:first-child {
+				margin-right: $spacer-sm / 2; // Pequeno espaço entre eles
+			}
+
+			&:last-child {
+				margin-left: $spacer-sm / 2;
+			}
+		}
+	}
+
+	@include media-breakpoint-down(sm) {
+		// Garante que no mobile fiquem empilhados e com largura total
+		flex-direction: column;
+
+		button {
+			width: 100%;
+
+			&:first-child {
+				margin-right: 0;
+				margin-bottom: $spacer-sm;
+			}
+
+			&:last-child {
+				margin-left: 0;
+			}
+		}
+	}
+}
+
+
+.actionButton {
+	@include button-base;
+	padding: $spacer-sm $spacer-lg;
+	font-size: $font-size-base;
+	min-width: 160px; // Reduzido um pouco
+	font-weight: $font-weight-medium;
+	text-decoration: none; // Garante que se for usado em Link, não tenha sublinhado
+	display: inline-block; // Para links funcionarem como botões
+	text-align: center;
+}
+
+.clearButton {
+	background-color: $neutral-light;
+	color: $neutral-darkest;
+	border-color: $neutral-medium;
+
+	&:hover {
+		background-color: $neutral-lighter;
+		border-color: $neutral-dark;
+	}
+}
+
+.finalizeButton {
+	// Botão do WhatsApp
+	background-color: #25D366;
+	color: $brand-white;
+	border-color: #25D366;
+	font-weight: $font-weight-bold;
+
+	&:hover {
+		background-color: darken(#25D366, 10%);
+		border-color: darken(#25D366, 10%);
+	}
+}
+
+.emailButton {
+	background-color: $secondary-color;
+	color: $brand-white;
+	border-color: $secondary-color;
+	font-weight: $font-weight-bold;
+
+	&:hover {
+		background-color: darken($secondary-color, 10%);
+		border-color: darken($secondary-color, 10%);
+	}
+}
+
+.emptyCartContainer {
+	height: 50vh;
+	text-align: center;
+	padding: $spacer-xxl $spacer-md;
+
+	h1 {
+		margin-bottom: $spacer-md;
+	}
+
+	p {
+		font-size: $font-size-lg;
+		margin-bottom: $spacer-lg;
+	}
+
+	.actionButton {
+		background-color: $primary-color;
+		color: $text-color-on-primary;
+		border-color: $primary-color;
+
+		&:hover {
+			background-color: $primary-color-dark;
+			border-color: $primary-color-dark;
+		}
+	}
+}
+
+@include media-breakpoint-down(sm) {
+	.cartItem {
+		grid-template-columns: 60px 1fr 40px;
+		grid-template-areas:
+			"image details remove"
+			"image quantity subtotal";
+		row-gap: $spacer-sm;
+		column-gap: $spacer-sm;
+		align-items: stretch; // Para que os itens preencham a altura da linha da grid-area
+
+		.itemImage {
+			grid-area: image;
+			width: 60px;
+			height: 60px;
+			align-self: center;
+		}
+
+		.itemDetails {
+			grid-area: details;
+		}
+
+		.itemQuantity {
+			grid-area: quantity;
+			justify-self: start;
+			align-self: center;
+		}
+
+		.itemSubtotal {
+			grid-area: subtotal;
+			text-align: right;
+			justify-self: end;
+			align-self: center;
+		}
+
+		.removeItemButton {
+			grid-area: remove;
+			justify-self: end;
+			align-self: start;
+		}
+	}
+
+	.summaryActions {
+		justify-content: center; // Botão de limpar centralizado
+	}
+
+	.summaryTotals {
+		align-items: center; // Bloco de totais e botões de finalizar centralizados
+		text-align: center;
+	}
+
+	.finalizeActions {
+		flex-direction: column; // Botões de finalizar empilhados
+		align-items: stretch; // Fazem os botões ocuparem a largura
+
+		button {
+			width: 100%;
+
+			&:first-child {
+				margin-right: 0;
+				margin-bottom: $spacer-sm;
+			}
+
+			&:last-child {
+				margin-left: 0;
+			}
+		}
+	}
+}

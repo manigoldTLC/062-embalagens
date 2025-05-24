@@ -1,0 +1,173 @@
+// src/components/Header/Header.module.scss
+@import '../../styles/variables'; // Ajuste o caminho
+
+.header {
+	background-color: $primary-color; // Azul da marca
+	padding: $spacer-sm $spacer-md; // 12px 16px
+	box-shadow: $box-shadow-md;
+	position: sticky; // Faz o header ficar fixo no topo ao rolar
+	top: 0;
+	z-index: $zindex-sticky; // Garante que fique sobre outros elementos
+	width: 100%;
+}
+
+.container {
+	max-width: $container-max-width-xl; // Definido em variables.scss
+	margin: 0 auto;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.logoLink {
+	display: inline-block; // Para que o link se ajuste à imagem
+
+	// A imagem do Next.js já tem estilos intrínsecos, não precisa de muito aqui
+	img {
+		// Estilos para a tag img dentro do Link, se necessário (Next/Image pode não precisar)
+		display: block; // Remove espaço extra abaixo da imagem
+	}
+}
+
+.navigation {
+	ul {
+		list-style: none;
+		margin: 0;
+		padding: 0;
+		display: flex;
+		align-items: center;
+	}
+
+	li {
+		margin-left: $spacer-lg; // 24px (espaço entre os links do desktop)
+	}
+
+	a {
+		color: $brand-white; // Texto branco
+		font-weight: $font-weight-medium;
+		text-decoration: none;
+		padding: $spacer-xs $spacer-sm; // 4px 8px
+		border-radius: $border-radius-sm;
+		@include transition(background-color, color);
+
+		&:hover,
+		&:focus {
+			background-color: rgba($brand-white, 0.15);
+			color: $brand-yellow; // Amarelo no hover/focus
+			text-decoration: none; // Evitar sublinhado padrão do browser
+		}
+
+		&.activeLink {
+		  background-color: $brand-yellow;
+		  color: $text-color-on-accent;
+		}
+	}
+
+	.cartLink {
+		position: relative; // Para posicionar o badge
+		display: flex; // Para alinhar o texto e o badge
+		align-items: center;
+		gap: $spacer-xs; // Espaço entre "Minha Lista" e o badge
+
+		// Se quiser um ícone de sacola/carrinho:
+		&::before {
+		  content: '\1F6CD'; // Exemplo de ícone de sacola de compras (pode variar a renderização)
+		  font-size: 1.2em;
+		  margin-right: $spacer-xs;
+		}
+	}
+
+	.itemCountBadge {
+		background-color: $brand-yellow; // Amarelo da marca para destaque
+		color: $text-color-on-accent; // Texto escuro sobre o amarelo
+		border-radius: 50%; // Círculo
+		padding: 2px 6px;
+		font-size: $font-size-sm * 0.85; // Pequeno
+		font-weight: $font-weight-bold;
+		line-height: 1;
+		min-width: 18px; // Largura mínima para o círculo
+		height: 18px; // Altura mínima para o círculo
+		display: inline-flex; // Para centralizar o número
+		justify-content: center;
+		align-items: center;
+		// position: absolute; // Se quiser posicionar sobre um ícone
+		// top: -5px;
+		// right: -10px;
+	}
+}
+
+// --- Estilos do Menu Mobile ---
+.mobileMenuButton {
+	display: none; // Escondido em telas maiores
+	background: none;
+	border: none;
+	color: $brand-white;
+	font-size: 1.8rem; // Tamanho do ícone
+	cursor: pointer;
+	padding: $spacer-xs;
+
+	&:focus {
+		outline: 2px solid $brand-yellow;
+		outline-offset: 2px;
+	}
+}
+
+.menuIcon {
+	// Estilo para os caracteres de ícone, se usar
+	display: block;
+	line-height: 1;
+}
+
+// Media Query para o Menu Mobile
+@include media-breakpoint-down(md) {
+
+	// Abaixo de 768px (ou o breakpoint que preferir para o menu mobile)
+	.mobileMenuButton {
+		display: block;
+		z-index: 1001; // Para ficar sobre o menu quando aberto
+	}
+
+	.navigation {
+		// Estilos para o menu quando estiver mobile e fechado
+		position: absolute;
+		top: 0; // Altura do header (ex: 60px ou 100% do header)
+		left: -100%; // Começa fora da tela
+		width: 75%; // Ou 250px, etc.
+		max-width: 300px;
+		height: 100vh; // Ocupa a altura toda da tela
+		background-color: darken($primary-color, 5%); // Um pouco mais escuro que o header
+		box-shadow: $box-shadow-lg;
+		padding-top: $spacer-xxl; // Espaço para o botão de fechar e logo
+		padding-left: $spacer-md;
+		padding-right: $spacer-md;
+		transition: left 0.3s ease-in-out;
+		z-index: 1000; // Para ficar sobre o conteúdo da página
+
+		&.isOpen {
+			left: 0; // Mostra o menu
+		}
+
+		ul {
+			flex-direction: column; // Links empilhados verticalmente
+			align-items: flex-start;
+			width: 100%;
+		}
+
+		li {
+			margin-left: 0;
+			width: 100%;
+		}
+
+		a {
+			display: block; // Para ocupar a largura toda do item da lista
+			padding: $spacer-md $spacer-sm; // Mais padding vertical
+			width: 100%;
+			border-bottom: 1px solid rgba($brand-white, 0.1);
+
+			&:hover,
+			&:focus {
+				background-color: rgba($brand-white, 0.1);
+			}
+		}
+	}
+}

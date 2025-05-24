@@ -1,0 +1,152 @@
+// src/components/Footer/Footer.module.scss
+@import '../../styles/variables'; // Ajuste o caminho
+
+.footer {
+	background-color: $neutral-darkest; // Um fundo escuro (preto suave ou azul bem escuro)
+	color: $neutral-lighter; // Texto claro sobre fundo escuro
+	padding: $spacer-xl $spacer-md; // 32px vertical, 16px horizontal
+	font-size: $font-size-sm; // 14px para o texto do rodapé
+}
+
+.container {
+	max-width: $container-max-width-xl;
+	margin: 0 auto;
+}
+
+.footerGrid {
+	display: grid;
+	gap: $spacer-lg; // 24px
+	margin-bottom: $spacer-xl; // 32px
+
+	// Layout da Grid para as colunas
+	grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); // Colunas flexíveis
+
+	@include media-breakpoint-up(md) {
+		// Acima de 768px
+		// Exemplo: grid-template-columns: 2fr 1fr 1.5fr; // Se quiser controle mais fino das larguras
+	}
+}
+
+.footerColumn {
+	h4 {
+		color: $brand-yellow; // Títulos das colunas em amarelo para destaque
+		font-size: $font-size-lg; // 18px
+		margin-bottom: $spacer-md; // 16px
+		font-weight: $font-weight-semibold;
+	}
+
+	ul {
+		list-style: none;
+		padding: 0;
+		margin: 0;
+	}
+
+	li {
+		margin-bottom: $spacer-sm; // 8px
+	}
+
+	a {
+		color: $neutral-lighter;
+		text-decoration: none;
+		@include transition(color);
+
+		&:hover,
+		&:focus {
+			color: $brand-yellow; // Amarelo no hover/focus
+			text-decoration: underline;
+		}
+	}
+
+	address {
+		font-style: normal; // Remover itálico padrão da tag address
+		line-height: 1.8;
+
+		a {
+			display: inline-block; // Para que o hover funcione melhor
+		}
+	}
+}
+
+.footerLogoLink {
+	display: inline-block;
+
+	img {
+		display: block;
+	}
+}
+
+.footerSlogan {
+	line-height: 1.7;
+	opacity: 0.9;
+}
+
+.openingHours {
+	margin-top: $spacer-sm;
+	font-size: $font-size-sm * 0.95;
+	opacity: 0.8;
+}
+
+.socialIcons {
+	display: flex;
+	gap: $spacer-md; // 16px
+
+	a {
+		font-size: 1.5rem; // Tamanho dos ícones (se usar react-icons)
+		color: $neutral-lighter;
+
+		&:hover,
+		&:focus {
+			color: $brand-yellow;
+		}
+	}
+}
+
+.footerBottom {
+	border-top: 1px solid lighten($neutral-darkest, 10%); // Linha sutil acima
+	padding-top: $spacer-lg; // 24px
+	font-size: $font-size-sm * 0.9; // Um pouco menor
+	opacity: 0.8;
+	text-align: center;
+	
+	p {
+		display: inline-block;
+		margin-bottom: $spacer-xs; // 4px
+
+		&:last-child {
+			margin-bottom: 0;
+		}
+	}
+}
+
+// Ajustes para telas menores se necessário
+@include media-breakpoint-down(sm) {
+
+	// Abaixo de 576px
+	.footerGrid {
+		text-align: center; // Centralizar colunas empilhadas
+		// Se usar o logo, ele já estará centralizado se o wrapper for block e margin auto,
+		// ou o text-align do pai pode ajudar.
+	}
+
+	.footerColumn {
+		margin-bottom: $spacer-lg; // Adicionar mais espaço entre colunas empilhadas
+
+		&:last-child {
+			margin-bottom: 0;
+		}
+
+		h4 {
+			// Pode querer aumentar um pouco o título no mobile se estiver muito pequeno
+		}
+
+		// Para centralizar itens de lista ou o bloco de endereço
+		ul,
+		address {
+			// text-align: center; // Se desejar centralizar o texto dentro também
+		}
+	}
+
+	.socialIcons {
+		justify-content: center; // Centralizar ícones
+	}
+}

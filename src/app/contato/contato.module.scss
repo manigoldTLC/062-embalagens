@@ -1,0 +1,137 @@
+// src/app/contato/contato.module.scss
+@import '../../styles/variables'; // Ajuste o caminho
+
+.contatoContainer {
+	max-width: $container-max-width-lg;
+	margin: $spacer-lg auto $spacer-xxl auto;
+	padding: 0 $spacer-md;
+}
+
+.pageHeader {
+	text-align: center;
+	margin-bottom: $spacer-xl;
+
+	h1 {
+		font-size: $h1-font-size * 0.9;
+		color: $primary-color-dark;
+		margin-bottom: $spacer-xs;
+	}
+
+	.subheadline {
+		font-size: $font-size-lg;
+		color: $neutral-dark;
+		max-width: 65ch;
+		margin: 0 auto;
+	}
+}
+
+.contactGrid {
+	display: grid;
+	gap: $spacer-xl; // Maior espaço entre os blocos de contato e mapa
+
+	@include media-breakpoint-up(md) {
+		// Duas colunas: uma para detalhes, outra para o mapa/imagem
+		grid-template-columns: 1fr 1fr; // Ou ajuste as proporções, ex: 1.2fr 0.8fr
+		align-items: flex-start; // Alinha os itens no topo se tiverem alturas diferentes
+	}
+}
+
+.contactDetails {
+	h2 {
+		font-size: $h3-font-size;
+		color: $neutral-darkest;
+		margin-bottom: $spacer-lg;
+		border-bottom: 2px solid $primary-color;
+		padding-bottom: $spacer-xs;
+		display: inline-block;
+	}
+}
+
+.contactItem {
+	margin-bottom: $spacer-lg;
+	display: flex; // Para alinhar ícone e texto (se usar ícones)
+	align-items: flex-start; // Alinha ícone com o topo do texto
+
+	.icon {
+		// Estilo para ícones do react-icons (se usar)
+		font-size: 1.5rem;
+		color: $primary-color;
+		margin-right: $spacer-sm;
+		margin-top: 2px; // Pequeno ajuste vertical
+	}
+
+	strong {
+		display: block;
+		font-weight: $font-weight-semibold;
+		color: $neutral-darkest;
+		margin-bottom: $spacer-xs;
+	}
+
+	address,
+	p,
+	ul {
+		margin: 0;
+		line-height: 1.7;
+		color: $text-color-body;
+	}
+
+	a {
+		color: $link-color;
+		text-decoration: none;
+
+		&:hover {
+			color: $link-hover-color;
+			text-decoration: underline;
+		}
+	}
+
+	.mapLink {
+		display: inline-block;
+		margin-top: $spacer-xs;
+		font-weight: $font-weight-medium;
+		color: $primary-color;
+
+		&:hover {
+			color: $primary-color-dark;
+		}
+	}
+
+	ul {
+		list-style: none;
+		padding-left: 0;
+	}
+}
+
+.mapSectionStatic,
+.mapSectionIframe {
+	h3 {
+		font-size: $h3-font-size * 0.9;
+		color: $neutral-darkest;
+		margin-bottom: $spacer-md;
+	}
+}
+
+.mapImage {
+	// Para o mapa como imagem estática
+	border-radius: $border-radius-md;
+	box-shadow: $box-shadow-base;
+	border: 1px solid $border-color;
+	max-width: 100%;
+	height: auto;
+}
+
+.mapWrapper {
+	// Para o iframe do Google Maps
+	border-radius: $border-radius-md;
+	overflow: hidden; // Para o border-radius aplicar no iframe
+	box-shadow: $box-shadow-base;
+	border: 1px solid $border-color;
+	line-height: 0; // Remove espaço extra abaixo do iframe
+}
+
+.mapDisclaimer {
+	font-size: $font-size-sm * 0.9;
+	color: $neutral-medium;
+	margin-top: $spacer-sm;
+	text-align: center;
+}

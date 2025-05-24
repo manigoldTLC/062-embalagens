@@ -1,0 +1,110 @@
+// src/styles/globals.scss
+
+// 1. Importar Variáveis (Fundamental!)
+@import 'variables'; // Garanta que o caminho esteja correto se você moveu
+
+// 2. Reset/Normalize Básico
+// (Você pode optar por um reset mais completo como Normalize.css ou um customizado)
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  // lang="pt-BR" será definido no layout.js, mas aqui garantimos suavidade
+  scroll-behavior: smooth;
+  // Melhor legibilidade da fonte e renderização
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-size: 100%; // Garante que 1rem = 16px (ou a preferência do usuário)
+}
+
+body {
+  font-family: $font-family-sans-serif; // Definido em variables.scss
+  font-size: $font-size-base;          // Definido em variables.scss
+  line-height: $line-height-base;      // Definido em variables.scss
+  color: $text-color-body;             // Definido em variables.scss
+  background-color: $body-bg;          // Definido em variables.scss
+  min-height: 100vh;
+  display: flex; // Ajuda o footer a ficar no final em páginas com pouco conteúdo
+  flex-direction: column;
+}
+
+// 3. Estilos Globais para Elementos Comuns
+h1, h2, h3, h4, h5, h6 {
+  font-family: $font-family-headings; // Definido em variables.scss
+  color: $text-color-headings;       // Definido em variables.scss
+  line-height: $line-height-headings;
+  margin-bottom: $spacer-sm; // Um espaçamento padrão abaixo dos títulos
+}
+
+p {
+  display: inline-block;
+  width: 100%; // Para garantir que o parágrafo ocupe toda a largura
+  margin-bottom: $spacer-md;
+  max-width: 75ch; // Melhora a legibilidade limitando a largura da linha
+}
+
+a {
+  color: $link-color; // Definido em variables.scss
+  text-decoration: none; // Remover sublinhado padrão
+  @include transition(color); // Usando nosso mixin de transição
+
+  &:hover, &:focus {
+    color: $link-hover-color; // Definido em variables.scss
+    text-decoration: underline; // Adicionar sublinhado no hover/focus para clareza
+  }
+}
+
+img, picture, video, canvas, svg {
+  display: block; // Evita espaços extras abaixo das imagens
+  max-width: 100%;
+  height: auto; // Garante responsividade
+}
+
+// 4. Classes Utilitárias para Acessibilidade
+.visually-hidden { // Para esconder visualmente mas manter para leitores de tela
+  @include visually-hidden; // Usando nosso mixin
+}
+
+// 5. Estilos de Foco Visíveis (Crucial para Acessibilidade)
+// Garanta que todos os elementos interativos tenham um indicador de foco claro.
+// O navegador já tem um padrão, mas podemos customizar para alinhar com a marca.
+// Exemplo:
+// :focus-visible { // Use :focus-visible para não aplicar em cliques de mouse
+//   outline: 2px solid $primary-color-light; // Ou $accent-color
+//   outline-offset: 2px;
+//   box-shadow: 0 0 0 4px rgba($primary-color, 0.2); // Um brilho sutil
+// }
+
+// (Opcional) Se você precisar de um container global
+// .container {
+//   width: 100%;
+//   max-width: $container-max-width-xl; // Definido em variables.scss
+//   margin-left: auto;
+//   margin-right: auto;
+//   padding-left: $spacer-md;
+//   padding-right: $spacer-md;
+// }
+
+.visually-hidden.focusable:focus,
+.visually-hidden.focusable:active {
+  position: static !important;
+  width: auto !important;
+  height: auto !important;
+  padding: $spacer-sm !important;
+  margin: $spacer-sm auto !important;
+  overflow: visible !important;
+  clip: auto !important;
+  white-space: normal !important;
+  background-color: $accent-color; // Amarelo para destaque
+  color: $text-color-on-accent; // Texto escuro sobre amarelo
+  font-weight: $font-weight-bold;
+  text-align: center;
+  border: 2px solid $brand-black;
+  z-index: $zindex-toast + 1; // Bem alto para aparecer sobre tudo
+  border-radius: $border-radius-sm;
+}

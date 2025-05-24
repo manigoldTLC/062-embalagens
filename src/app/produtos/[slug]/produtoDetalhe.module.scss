@@ -1,0 +1,179 @@
+// src/app/produtos/[slug]/produtoDetalhe.module.scss
+@import '../../../styles/variables'; // Ajuste o caminho
+
+.productDetailContainer {
+	max-width: $container-max-width-lg; // Ou xl, dependendo do layout desejado
+	margin: $spacer-lg auto;
+	padding: 0 $spacer-md;
+}
+
+.breadcrumb {
+	font-size: $font-size-sm;
+	color: $neutral-medium;
+	margin-bottom: $spacer-lg;
+
+	a {
+		color: $link-color;
+
+		&:hover {
+			color: $link-hover-color;
+		}
+	}
+
+	span {
+		// O nome do produto atual
+		font-weight: $font-weight-medium;
+		color: $neutral-dark;
+	}
+}
+
+.productLayout {
+	display: grid;
+	gap: $spacer-xl;
+
+	@include media-breakpoint-up(md) {
+		grid-template-columns: 1fr 1fr; // Ou como preferir, ex: 0.8fr 1.2fr;
+	}
+}
+
+.productName {
+	font-size: $h1-font-size * 0.9; // Pode ser um H1 real
+	color: $neutral-darkest;
+	margin-bottom: $spacer-sm;
+	line-height: 1.2;
+}
+
+.shortDescription {
+	font-size: $font-size-lg;
+	color: $neutral-dark;
+	margin-bottom: $spacer-md;
+	line-height: 1.6;
+}
+
+.price {
+	font-size: $font-size-base * 2; // Preço bem destacado
+	font-weight: $font-weight-bold;
+	color: $primary-color;
+	margin-bottom: $spacer-lg;
+}
+
+.stockStatusIn,
+.stockStatusOut,
+.stockStatusLow {
+	font-weight: $font-weight-medium;
+	margin-bottom: $spacer-lg;
+	padding: $spacer-xs $spacer-sm;
+	border-radius: $border-radius-sm;
+	display: inline-block; // Para o padding funcionar bem
+}
+
+.stockStatusIn {
+	color: darken($success-color, 10%);
+	background-color: lighten($success-color, 40%);
+}
+
+.stockStatusOut {
+	color: darken($error-color, 10%);
+	background-color: lighten($error-color, 35%);
+}
+
+.stockStatusLow {
+	color: darken($warning-color, 20%);
+	background-color: lighten($warning-color, 30%);
+}
+
+.addToCartButton {
+	@include button-base; // Usa o mixin de botão
+	background-color: $accent-color; // Amarelo
+	color: $text-color-on-accent;
+	border-color: $accent-color;
+	width: 100%;
+	padding: $spacer-md $spacer-lg;
+	font-size: $font-size-lg;
+	font-weight: $font-weight-bold;
+	margin-bottom: $spacer-lg;
+
+	&:hover:not(:disabled) {
+		background-color: darken($accent-color, 8%);
+		border-color: darken($accent-color, 10%);
+	}
+
+	&:disabled {
+		background-color: $neutral-light;
+		border-color: $neutral-light;
+		color: $neutral-medium;
+		cursor: not-allowed;
+	}
+}
+
+.longDescription,
+.specifications,
+.tags {
+	margin-bottom: $spacer-lg;
+
+	h2 {
+		font-size: $h4-font-size;
+		color: $neutral-darkest;
+		margin-bottom: $spacer-sm;
+		border-bottom: 1px solid $border-color;
+		padding-bottom: $spacer-xs;
+	}
+
+	p,
+	li {
+		color: $neutral-dark;
+		line-height: 1.7;
+		margin-bottom: $spacer-sm;
+	}
+
+	ul {
+		list-style: disc;
+		padding-left: $spacer-lg; // Recuo para marcadores
+	}
+}
+
+.tags {
+	font-size: $font-size-sm;
+	color: $neutral-medium;
+
+	strong {
+		color: $neutral-dark;
+	}
+}
+
+.notFoundContainer {
+	text-align: center;
+	padding: $spacer-xxl $spacer-md;
+
+	h1 {
+		color: $primary-color-dark;
+		margin-bottom: $spacer-md;
+	}
+
+	p {
+		font-size: $font-size-lg;
+		margin-bottom: $spacer-lg;
+	}
+
+	a {
+		@include button-base;
+		// Estilos do botão de CTA
+	}
+}
+
+// Seção de Produtos Relacionados (Estilos base)
+// .relatedProductsSection {
+//   margin-top: $spacer-xxl;
+//   padding-top: $spacer-xl;
+//   border-top: 1px solid $border-color;
+//   h2 {
+//     text-align: center;
+//     font-size: $h3-font-size;
+//     margin-bottom: $spacer-lg;
+//   }
+// }
+// .relatedProductsGrid { // Usaria o ProductCard, então a grid seria similar à de /produtos
+//   display: grid;
+//   gap: $spacer-lg;
+//   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+// }

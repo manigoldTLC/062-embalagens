@@ -1,0 +1,92 @@
+// src/app/sobre/sobre.module.scss
+@import '../../styles/variables'; // Ajuste o caminho
+
+.sobreContainer {
+	max-width: $container-max-width-lg; // Um pouco mais estreito para melhor leitura
+	margin: $spacer-lg auto $spacer-xxl auto; // Mais margem inferior
+	padding: 0 $spacer-md;
+}
+
+.pageHeader {
+	text-align: center;
+	margin-bottom: $spacer-xl; // 32px
+
+	h1 {
+		font-size: $h1-font-size * 0.9;
+		color: $primary-color-dark;
+		margin-bottom: $spacer-xs;
+	}
+
+	.subheadline {
+		font-size: $font-size-lg;
+		color: $neutral-dark;
+		max-width: 65ch;
+		margin: 0 auto;
+	}
+}
+
+.contentSection {
+	margin-bottom: $spacer-xl; // 32px
+	// Para layout lado a lado de texto e imagem (opcional)
+	// display: grid;
+	// gap: $spacer-lg;
+	// align-items: center;
+	// @include media-breakpoint-up(md) {
+	//   grid-template-columns: 1fr 1fr; // Ou fr diferentes
+	// }
+}
+
+.textBlock {
+	margin-bottom: $spacer-lg; // Espaço entre blocos de texto
+
+	h2 {
+		font-size: $h3-font-size;
+		color: $neutral-darkest;
+		margin-bottom: $spacer-md;
+		border-bottom: 2px solid $primary-color; // Destaque para títulos de seção
+		padding-bottom: $spacer-xs;
+		display: inline-block; // Para que a borda não ocupe a largura toda
+	}
+
+	p,
+	li {
+		font-size: $font-size-base; // 16px
+		line-height: 1.8; // Boa altura de linha para leitura
+		color: $text-color-body;
+		margin-bottom: $spacer-md;
+	}
+
+	ul {
+		list-style: none; // Ou 'disc' se preferir marcadores padrão
+		padding-left: 0; // Remover padding se não usar marcadores padrão
+	}
+
+	li {
+		padding-left: $spacer-lg; // Espaço para um marcador customizado ou indentação
+		position: relative;
+		margin-bottom: $spacer-sm;
+
+		// Marcador customizado (opcional)
+		&::before {
+			content: '✓'; // Ou outro ícone/caractere
+			color: $primary-color;
+			font-weight: $font-weight-bold;
+			position: absolute;
+			left: 0;
+			top: 2px; // Ajuste vertical
+		}
+	}
+}
+
+.imageBlock {
+	text-align: center; // Centraliza a imagem se ela for menor que o bloco
+	margin-bottom: $spacer-lg;
+}
+
+.featureImage {
+	// Classe para a imagem se você adicionar uma
+	border-radius: $border-radius-lg;
+	box-shadow: $box-shadow-md;
+	max-width: 100%;
+	height: auto;
+}

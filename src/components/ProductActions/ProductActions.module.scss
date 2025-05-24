@@ -1,0 +1,149 @@
+// src/components/ProductActions/ProductActions.module.scss
+@import '../../styles/variables'; // Ajuste o caminho
+
+.actionsContainer {
+	display: flex;
+	flex-direction: column;
+	gap: $spacer-md;
+	margin-bottom: $spacer-lg; // Mesma margem do botão de carrinho antigo
+	margin-top: $spacer-md; // Espaço acima do seletor de quantidade
+}
+
+.colorSelectorDetail {
+	display: flex;
+	align-items: center;
+	gap: $spacer-sm;
+	margin-bottom: $spacer-md;
+}
+
+.selectorLabel {
+	font-weight: $font-weight-medium;
+	color: $neutral-darkest;
+}
+
+.colorOptionsWrapper {
+	display: flex;
+	gap: $spacer-xs;
+}
+
+.colorOptionDetail {
+	width: 28px;
+	height: 28px;
+	border-radius: 50%;
+	border: 2px solid $neutral-lighter;
+	cursor: pointer;
+	padding: 0;
+	box-shadow: $box-shadow-sm;
+	transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+
+	&:hover {
+		transform: scale(1.1);
+		border-color: $neutral-medium;
+	}
+
+	&:focus {
+		outline: 2px solid $primary-color;
+		outline-offset: 2px;
+	}
+
+	&.activeColorDetail {
+		border-color: $primary-color-dark;
+		box-shadow: 0 0 0 2px $primary-color-dark inset, $box-shadow-md; // Borda interna e sombra
+		transform: scale(1.1);
+	}
+}
+
+.quantitySelector {
+	display: flex;
+	align-items: center;
+	gap: $spacer-sm;
+}
+
+.quantityInputWrapper {
+	// Novo wrapper para input e botões +/-
+	display: flex;
+	align-items: center;
+	border: 1px solid $border-color;
+	border-radius: $border-radius-sm;
+	overflow: hidden;
+
+	input[type="number"].quantityInput {
+		// Estilo do input já definido
+		width: 50px;
+		border: none;
+		// border-left: 1px solid $border-color;
+		// border-right: 1px solid $border-color;
+		border-radius: 0;
+
+		&:focus {
+			box-shadow: none;
+		}
+	}
+
+	button {
+		background-color: $neutral-ultra-light;
+		border: none;
+		padding: $spacer-sm $spacer-sm;
+		cursor: pointer;
+		font-size: 1.2rem;
+		line-height: 1;
+		color: $primary-color;
+		min-width: 36px;
+
+		&:hover {
+			background-color: $neutral-lightest;
+		}
+
+		&:first-child {
+			border-right: 1px solid $border-color;
+		}
+
+		&:last-child {
+			border-left: 1px solid $border-color;
+		}
+	}
+}
+
+.quantityLabel {
+	font-weight: $font-weight-medium;
+	color: $neutral-darkest;
+}
+
+.quantityInput {
+	padding: $spacer-xs $spacer-sm;
+	border: 1px solid $border-color;
+	border-radius: $border-radius-sm;
+	width: 70px; // Largura para o input de quantidade
+	text-align: center;
+	font-size: $font-size-base;
+
+	&:focus {
+		outline: none;
+		border-color: $primary-color;
+		box-shadow: 0 0 0 2px rgba($primary-color, 0.2);
+	}
+}
+
+.addToCartButton {
+	@include button-base;
+	background-color: $primary-color; // Cor primária para o botão principal da página de produto
+	color: $text-color-on-primary;
+	border-color: $primary-color;
+	width: 100%; // Ocupa a largura disponível
+	padding: $spacer-md $spacer-lg;
+	font-size: $font-size-lg;
+	font-weight: $font-weight-bold;
+
+	&:hover:not(:disabled) {
+		background-color: $primary-color-dark;
+		border-color: $primary-color-dark;
+	}
+
+	&:disabled {
+		// Reutilizando o estilo do botão desabilitado
+		background-color: $neutral-light;
+		border-color: $neutral-light;
+		color: $neutral-medium;
+		cursor: not-allowed;
+	}
+}

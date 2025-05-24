@@ -1,0 +1,73 @@
+// src/components/ProductImageGallery/ProductImageGallery.module.scss
+@import '../../styles/variables'; // Ajuste o caminho
+
+.galleryContainer {
+	display: flex;
+	flex-direction: column;
+	gap: $spacer-md; // Espaço entre a imagem principal e as miniaturas
+}
+
+.mainImageWrapper {
+	position: relative; // Importante para next/image com layout="responsive" ou "intrinsic" se usar aspect-ratio
+	border: 1px solid $border-color;
+	border-radius: $border-radius-md;
+	overflow: hidden; // Garante que a imagem respeite o border-radius
+	background-color: $neutral-ultra-light; // Fundo enquanto a imagem carrega
+	// Para manter uma proporção antes da imagem carregar, se usar width/height fixos no Image:
+	// width: 100%; // Ou um tamanho máximo
+	// padding-top: 75%; // Exemplo para proporção 4:3 ( (altura / largura) * 100% )
+	// Se usar width/height direto no Image, este wrapper pode ser mais simples
+
+	// Se estiver usando Image com width e height definidos, e não layout="fill"
+	// e quiser que ele seja responsivo:
+	:global(img) {
+		// Estiliza a tag <img> gerada pelo Next/Image
+		display: block;
+		max-width: 100%;
+		height: auto; // Mantém a proporção da imagem
+		margin: 0 auto; // Centraliza se a imagem for menor que o wrapper
+	}
+}
+
+.thumbnailGrid {
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(80px, 1fr)); // Miniaturas responsivas
+	gap: $spacer-sm; // Espaço entre as miniaturas
+}
+
+.thumbnailButton {
+	padding: 0;
+	border: 2px solid transparent; // Borda para indicar foco/seleção
+	border-radius: $border-radius-sm;
+	cursor: pointer;
+	background-color: transparent;
+	overflow: hidden; // Para o radius da imagem interna
+	line-height: 0; // Remove espaço extra se houver
+	@include transition(border-color);
+
+	&:hover,
+	&:focus {
+		border-color: lighten($primary-color-light, 10%);
+		outline: none; // A borda já serve como indicador de foco
+	}
+
+	&.activeThumbnail {
+		border-color: $primary-color; // Borda destacada para o thumbnail ativo
+		box-shadow: 0 0 0 2px $primary-color; // Efeito de brilho extra
+	}
+}
+
+.thumbnailImageWrapper {
+	position: relative;
+	width: 100%;
+	aspect-ratio: 4 / 3; // Mantém a proporção das miniaturas
+	background-color: $neutral-lightest;
+
+	// Estilos para a tag img dentro do wrapper da miniatura
+	:global(img) {
+		display: block;
+		width: 100%;
+		height: 100%;
+		// object-fit: cover; // Já definido no componente Image
+	}
+}

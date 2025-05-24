@@ -1,0 +1,32 @@
+// src/containers/HomePage/FeaturedCategoriesSection/FeaturedCategoriesSection.module.scss
+@import '../../../styles/variables'; // Ajuste o caminho para suas variáveis
+
+.featuredCategories {
+  padding: $spacer-xxl $spacer-md;
+  background-color: $section-bg-light;
+
+  h2 {
+    text-align: center;
+    font-size: $h2-font-size;
+    margin-bottom: $spacer-xl;
+    color: $primary-color-dark;
+  }
+}
+
+.categoriesGrid {
+  display: grid;
+  gap: $spacer-lg;
+  max-width: $container-max-width-xl;
+  margin: 0 auto;
+  grid-template-columns: 1fr;
+
+  @include media-breakpoint-up(sm) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @include media-breakpoint-up(lg) {
+    // Considerar 4 colunas se o número de categorias crescer, ou manter 3
+    // grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); // Mais flexível
+  }
+}

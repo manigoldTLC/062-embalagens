@@ -1,0 +1,42 @@
+// src/components/RelatedProducts/RelatedProducts.module.scss
+@import '../../styles/variables'; // Ajuste o caminho
+
+.relatedProductsSection {
+	margin-top: $spacer-xxl; // Bom espaço acima
+	padding-top: $spacer-xl; // Espaço interno superior
+	border-top: 1px solid $border-color; // Linha separadora
+}
+
+.sectionTitle {
+	text-align: center;
+	font-size: $h3-font-size; // Tamanho adequado para título de seção secundária
+	color: $neutral-darkest;
+	margin-bottom: $spacer-lg;
+}
+
+.relatedProductsGrid {
+	display: grid;
+	gap: $spacer-lg;
+	grid-template-columns: 1fr; // Mobile
+
+	@include media-breakpoint-up(sm) {
+		grid-template-columns: repeat(2, 1fr);
+	}
+
+	@include media-breakpoint-up(md) {
+		// Para 3 ou 4 produtos, auto-fit pode não ser o ideal se quiser um número fixo de colunas.
+		// Se estamos mostrando no máximo 4, podemos ter 2 colunas em MD e até 4 em LG/XL
+		grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+	}
+
+	@include media-breakpoint-up(lg) {
+		// Se displayedProducts.length for 4, repeat(4, 1fr) fica bom.
+		// Se for menor, auto-fit ainda funciona bem.
+		// Para um layout mais controlado com no máximo 4 itens:
+		grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+		// Se quiser garantir que não passe de 4 colunas e centralizar se menos:
+		// Se você sempre exibe 4 (ou menos se não houver 4), pode usar:
+		// grid-template-columns: repeat(4, 1fr);
+		// Se a quantidade for variável, auto-fit/auto-fill é melhor.
+	}
+}

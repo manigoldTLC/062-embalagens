@@ -1,0 +1,249 @@
+// src/components/ProductCard/ProductCard.module.scss
+@import '../../styles/variables'; // Ajuste o caminho
+
+.productCard {
+	background-color: $card-bg;
+	border: 1px solid $border-color;
+	border-radius: $border-radius-lg;
+	overflow: hidden;
+	display: flex;
+	flex-direction: column;
+	box-shadow: $box-shadow-base;
+	transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+	&:hover {
+		transform: translateY(-5px);
+		box-shadow: $box-shadow-lg;
+	}
+}
+
+.imageLink {
+	display: block; // Faz o link ocupar o espaço do wrapper da imagem
+}
+
+.imageWrapper {
+	position: relative;
+	width: 100%;
+	// height: 250px; // Ou defina uma altura fixa ou use aspect-ratio
+	aspect-ratio: 4 / 3; // Proporção comum para imagens de produto
+	background-color: $neutral-lightest; // Fundo para o caso da imagem demorar a carregar
+
+	img {
+		width: 100%;
+		height: 100%;
+		object-fit: cover; // Cobre o espaço do wrapper
+		object-position: center; // Centraliza a imagem
+	}
+}
+
+.content {
+	padding: $spacer-md;
+	display: flex;
+	flex-direction: column;
+	flex-grow: 1; // Faz o conteúdo ocupar o espaço restante
+}
+
+.name {
+	font-size: $font-size-lg;
+	font-weight: $font-weight-semibold;
+	margin-bottom: $spacer-xs;
+	color: $neutral-darkest;
+	min-height: 2.6em; // Para 2 linhas de texto, ajuste conforme necessário
+
+	a {
+		color: inherit; // Herda a cor do h3
+		text-decoration: none;
+
+		&:hover {
+			color: $primary-color; // Muda a cor do nome do produto no hover
+			text-decoration: underline;
+		}
+	}
+}
+
+.selectedColorName {
+	font-weight: $font-weight-normal;
+	font-size: $font-size-sm;
+	color: $neutral-medium;
+}
+
+.colorSelector {
+	margin-bottom: $spacer-sm;
+	display: flex;
+	gap: $spacer-xs;
+	align-items: center;
+	// .selectorLabel {
+	//   font-size: $font-size-sm;
+	//   color: $neutral-dark;
+	//   margin-right: $spacer-xs;
+	// }
+}
+
+.colorOption {
+	width: 20px;
+	height: 20px;
+	border-radius: 50%;
+	border: 1px solid $neutral-light;
+	cursor: pointer;
+	padding: 0; // Remove padding padrão de botão
+	box-shadow: $box-shadow-sm;
+	transition: transform 0.2s ease, box-shadow 0.2s ease;
+
+	&:hover {
+		transform: scale(1.1);
+	}
+
+	&:focus {
+		outline: 2px solid $primary-color;
+		outline-offset: 1px;
+	}
+
+	&.activeColor {
+		border: 2px solid $primary-color-dark; // Borda mais grossa para cor ativa
+		box-shadow: $box-shadow-md;
+		transform: scale(1.1);
+	}
+}
+
+
+.descriptionShort {
+	font-size: $font-size-sm;
+	color: $neutral-dark;
+	margin-bottom: $spacer-md;
+	line-height: 1.5;
+	min-height: 4.5em; // Para 3 linhas, ajuste
+	flex-grow: 1; // Faz este elemento crescer para empurrar os botões para baixo
+}
+
+.quantityAndActions {
+	// Antigo .actions
+	display: flex;
+	flex-direction: column;
+	gap: $spacer-sm;
+	margin-top: auto; // Empurra para o final do card
+	margin-bottom: $spacer-sm; // Espaço antes do botão "Ver Detalhes"
+}
+
+.quantitySelectorCard {
+	display: flex;
+	align-items: center;
+	justify-content: space-between; // Distribui os botões e input
+	border: 1px solid $border-color;
+	border-radius: $border-radius-sm;
+	overflow: hidden; // Para arredondar os botões internos
+
+	input[type="number"] {
+		width: 40px; // Largura do input
+		text-align: center;
+		border: none;
+		// border-left: 1px solid $border-color;
+		// border-right: 1px solid $border-color;
+		padding: $spacer-xs 0;
+		font-size: $font-size-base;
+		-moz-appearance: textfield;
+		appearance: none;
+
+		&::-webkit-outer-spin-button,
+		&::-webkit-inner-spin-button {
+			// Remove setas padrão no Chrome/Safari
+			-webkit-appearance: none;
+			margin: 0;
+		}
+
+		&:focus {
+			outline: none;
+		}
+	}
+
+	button {
+		background-color: $neutral-ultra-light;
+		border: none;
+		padding: $spacer-xs $spacer-sm;
+		cursor: pointer;
+		font-size: 1.2rem; // Tamanho dos ícones +/-
+		line-height: 1;
+		color: $primary-color;
+
+		&:hover {
+			background-color: $neutral-lightest;
+		}
+
+		&:first-child {
+			border-right: 1px solid $border-color;
+		}
+
+		&:last-child {
+			border-left: 1px solid $border-color;
+		}
+	}
+}
+
+.price {
+	font-size: $font-size-xl;
+	font-weight: $font-weight-bold;
+	color: $primary-color; // Azul da marca para o preço
+	margin-bottom: $spacer-sm;
+}
+
+.descriptionShort {
+	font-size: $font-size-sm;
+	color: $neutral-dark;
+	margin-bottom: $spacer-md;
+	flex-grow: 1; // Empurra o botão para baixo
+	line-height: 1.5;
+	// Limitar a 2-3 linhas de texto (opcional, usando o mixin)
+	// @include truncate-text(3);
+	min-height: 4.5em; // Para 3 linhas de texto, ajuste conforme necessário
+	margin-bottom: $spacer-sm;
+}
+
+.actions {
+	margin-top: auto; // Empurra os botões para o final do card
+	display: flex;
+	flex-direction: column; // Botões um abaixo do outro
+	gap: $spacer-sm; // Espaço entre os botões
+
+	@include media-breakpoint-up(xs) {
+		// Em telas um pouco maiores, pode colocar lado a lado
+		// Se os botões forem muito largos, mantenha column ou ajuste o minmax da grid
+		// Para este exemplo, vamos manter em coluna para simplicidade no card.
+		// Se quiser lado a lado:
+		// flex-direction: row;
+		// .detailsButton, .addToListButton {
+		//   flex: 1; // Para ocupar espaço igual se estiverem lado a lado
+		// }
+	}
+}
+
+.detailsButton {
+	@include button-base; // Herda estilos base do mixin
+	background-color: $accent-color; // Amarelo
+	color: $text-color-on-accent;
+	border-color: $accent-color;
+	text-align: center;
+	width: 100%; // Botão ocupa largura total
+	margin-top: auto; // Garante que o botão fique na parte inferior se o conteúdo for curto
+
+	&:hover,
+	&:focus {
+		background-color: darken($accent-color, 8%);
+		border-color: darken($accent-color, 10%);
+		color: $text-color-on-accent;
+	}
+}
+
+
+.addToListButton {
+	@include button-base;
+	background-color: $primary-color; // Usar a cor primária (azul)
+	color: $text-color-on-primary; // Texto branco
+	border-color: $primary-color;
+	text-align: center;
+	width: 100%;
+
+	&:hover,
+	&:focus {
+		background-color: $primary-color-dark;
+		border-color: $primary-color-dark;
+	}
+}

@@ -1,0 +1,112 @@
+// src/app/produtos/produtos.module.scss
+@import '../../styles/variables'; // Ajuste o caminho conforme sua estrutura
+
+.productsPageContainer {
+	max-width: $container-max-width-xl; // Ou $container-max-width-xxl para mais espaço
+	margin: 0 auto;
+	padding: $spacer-lg $spacer-md; // 24px 16px
+}
+
+.pageHeader {
+	text-align: center;
+	margin-bottom: $spacer-xl; // 32px
+
+	h1 {
+		font-size: $h2-font-size; // Usar H2 para o título da página, H1 já deve estar no Header/Logo
+		// ou manter H1 aqui se esta for a principal heading da página.
+		// Para SEO, é comum ter um H1 descritivo na página.
+		color: $primary-color-dark;
+		margin-bottom: $spacer-sm;
+	}
+
+	p {
+		font-size: $font-size-lg;
+		color: $neutral-dark;
+		max-width: 70ch;
+		margin-left: auto;
+		margin-right: auto;
+	}
+}
+
+.filtersToolbar {
+	// Placeholder para futuros filtros
+	margin-top: $spacer-lg;
+	padding: $spacer-md;
+	background-color: $neutral-ultra-light;
+	border-radius: $border-radius-md;
+	// ... estilos para filtros
+}
+
+.productsGrid {
+	display: grid;
+	gap: $spacer-lg; // 24px de espaço entre os cards
+
+	// Layout da Grid:
+	grid-template-columns: 1fr; // Padrão mobile (1 coluna)
+
+	@include media-breakpoint-up(sm) {
+		// 576px+ (2 colunas)
+		grid-template-columns: repeat(2, 1fr);
+	}
+
+	@include media-breakpoint-up(md) {
+		// 768px+ (3 colunas)
+		// Ajuste o minmax para o tamanho desejado do seu ProductCard
+		grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+	}
+
+	// Se quiser forçar 4 colunas em telas maiores:
+	// @include media-breakpoint-up(xl) { // 1200px+
+	//   grid-template-columns: repeat(4, 1fr);
+	// }
+}
+
+.noProducts {
+	text-align: center;
+	font-size: $font-size-lg;
+	color: $neutral-medium;
+	padding: $spacer-xxl 0; // Bastante espaço se não houver produtos
+}
+
+.categoryNav {
+	margin-bottom: $spacer-xl; // Espaço abaixo da navegação de categorias
+	padding-bottom: $spacer-md;
+	border-bottom: 1px solid $border-color;
+
+	ul {
+		list-style: none;
+		padding: 0;
+		margin: 0;
+		display: flex;
+		flex-wrap: wrap; // Permite que os itens quebrem linha em telas menores
+		gap: $spacer-sm; // Espaço entre os links das categorias
+		justify-content: center; // Centraliza os links das categorias
+	}
+
+	a {
+		display: inline-block;
+		padding: $spacer-xs $spacer-md; // 4px 16px
+		color: $primary-color-dark;
+		font-weight: $font-weight-medium;
+		border-radius: $border-radius-pill; // Bordas arredondadas tipo "pill"
+		text-decoration: none;
+		border: 1px solid transparent; // Para manter o layout no hover/active
+		@include transition(background-color, color, border-color);
+
+		&:hover,
+		&:focus {
+			background-color: lighten($primary-color-light, 15%);
+			color: $primary-color-dark;
+			border-color: $primary-color-light;
+			text-decoration: none;
+		}
+
+		&.activeCategory {
+			// Estilo para a categoria ativa
+			background-color: $primary-color;
+			color: $text-color-on-primary; // Texto branco
+			border-color: $primary-color;
+			font-weight: $font-weight-bold;
+		}
+	}
+}

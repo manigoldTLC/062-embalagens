@@ -1,0 +1,700 @@
+{
+	"categories": [
+		{
+			"id": "embalagens-presente",
+			"name": "Embalagens para Presente",
+			"slug": "embalagens-para-presente",
+			"description": "As melhores embalagens para valorizar seus presentes."
+		},
+		{
+			"id": "artigos-festa",
+			"name": "Artigos de Festa",
+			"slug": "artigos-de-festa",
+			"description": "Tudo para sua festa ser inesquecível."
+		},
+		{
+			"id": "higiene-limpeza",
+			"name": "Higiene e Limpeza",
+			"slug": "higiene-limpeza",
+			"description": "Produtos para cuidado pessoal e do lar.",
+			"subcategories": [
+				{
+					"id": "higiene-pessoal",
+					"name": "Higiene Pessoal",
+					"slug": "higiene-pessoal"
+				},
+				{
+					"id": "limpeza-casa",
+					"name": "Limpeza de Casa",
+					"slug": "limpeza-casa"
+				}
+			]
+		},
+		{
+			"id": "papelaria",
+			"name": "Papelaria",
+			"slug": "papelaria",
+			"description": "Material completo para estudo e escritório."
+		},
+		{
+			"id": "embalagens-geral",
+			"name": "Embalagens em Geral",
+			"slug": "embalagens-em-geral",
+			"description": "Soluções práticas para o dia a dia e para seu negócio."
+		}
+	],
+	"products": [
+		{
+			"id": "PROD001",
+			"name": "Caixa de Presente Kraft Decorada (Média)",
+			"slug": "caixa-presente-kraft-decorada-media",
+			"description_short": "Caixa de presente em papel Kraft resistente, tamanho médio, com decoração artesanal.",
+			"description_long": "Surpreenda com esta linda caixa de presente feita em papel Kraft de alta gramatura. Ideal para presentes de tamanho médio, como roupas, livros ou kits. A decoração artesanal adiciona um toque rústico e elegante. Fácil de montar e reutilizável.\nDimensões: 20cm x 15cm x 10cm.",
+			"price": "12.50",
+			"currency": "BRL",
+			"category_id": "embalagens-presente",
+			"subcategory_id": null,
+			"images": [
+				"https://placehold.co/600x400/E0E0E0/333333?text=PROD001-1",
+				"https://placehold.co/600x400/E0E0E0/333333?text=PROD001-2",
+				"https://placehold.co/600x400/E0E0E0/333333?text=PROD001-3"
+			],
+			"stock_status": "in_stock",
+			"tags": [
+				"caixa de presente",
+				"kraft",
+				"artesanal",
+				"embalagem média",
+				"sustentável"
+			],
+			"specifications": [
+				{
+					"name": "Material",
+					"value": "Papel Kraft 300g"
+				},
+				{
+					"name": "Dimensões (LxCxA)",
+					"value": "20cm x 15cm x 10cm"
+				},
+				{
+					"name": "Cor",
+					"value": "Pardo com detalhes coloridos"
+				}
+			],
+			"related_products": [
+				"PROD006",
+				"PROD008"
+			]
+		},
+		{
+			"id": "PROD002",
+			"name": "Kit Festa Descartável (50 Pessoas)",
+			"slug": "kit-festa-descartavel-50-pessoas",
+			"description_short": "Kit completo de descartáveis para festas e eventos, serve 50 pessoas.",
+			"description_long": "Facilite a organização da sua festa com nosso kit de descartáveis completo! Inclui pratos, copos, talheres e guardanapos para 50 convidados. Produtos de qualidade, resistentes e com design neutro para combinar com qualquer decoração.\nConteúdo: 50 pratos de refeição, 50 pratos de sobremesa, 50 copos (200ml), 50 garfos, 50 facas, 100 guardanapos.",
+			"price": "89.90",
+			"currency": "BRL",
+			"category_id": "artigos-festa",
+			"subcategory_id": null,
+			"images": [
+				"https://placehold.co/600x400/E0E0E0/333333?text=PROD002-1",
+				"https://placehold.co/600x400/E0E0E0/333333?text=PROD002-2"
+			],
+			"stock_status": "in_stock",
+			"tags": [
+				"kit festa",
+				"descartáveis",
+				"festa de aniversário",
+				"evento",
+				"pratos e copos"
+			],
+			"specifications": [
+				{
+					"name": "Conteúdo",
+					"value": "Pratos, Copos, Talheres, Guardanapos"
+				},
+				{
+					"name": "Material",
+					"value": "Plástico PS e Papel"
+				},
+				{
+					"name": "Serve",
+					"value": "50 Pessoas"
+				}
+			],
+			"related_products": [
+				"PROD007",
+				"PROD010"
+			]
+		},
+		{
+			"id": "PROD003",
+			"name": "Sabonete Líquido Erva Doce (500ml)",
+			"slug": "sabonete-liquido-erva-doce-500ml",
+			"description_short": "Sabonete líquido com extrato de Erva Doce, 500ml, pH balanceado.",
+			"description_long": "Mantenha sua pele limpa, macia e perfumada com nosso sabonete líquido de Erva Doce. Sua fórmula com pH balanceado e extratos naturais limpa suavemente sem ressecar. O frasco de 500ml com pump dosador é prático e econômico para o uso diário de toda a família.\nFragrância: Erva Doce Suave.",
+			"price": "19.90",
+			"currency": "BRL",
+			"category_id": "higiene-limpeza",
+			"subcategory_id": "higiene-pessoal",
+			"images": [
+				"https://placehold.co/600x400/E0E0E0/333333?text=PROD003-1",
+				"https://placehold.co/600x400/E0E0E0/333333?text=PROD003-2"
+			],
+			"stock_status": "in_stock",
+			"tags": [
+				"sabonete líquido",
+				"erva doce",
+				"higiene pessoal",
+				"ph balanceado"
+			],
+			"specifications": [
+				{
+					"name": "Volume",
+					"value": "500ml"
+				},
+				{
+					"name": "Fragrância",
+					"value": "Erva Doce"
+				},
+				{
+					"name": "Tipo de Pele",
+					"value": "Todos os tipos"
+				}
+			],
+			"related_products": [
+				"PROD004",
+				"PROD009"
+			]
+		},
+		{
+			"id": "PROD004",
+			"name": "Limpador Multiuso Perfumado Lavanda (1L)",
+			"slug": "limpador-multiuso-perfumado-lavanda-1l",
+			"description_short": "Limpador multiuso com aroma de lavanda, ideal para diversas superfícies. Embalagem de 1 litro.",
+			"description_long": "O Limpador Multiuso Perfumado Lavanda é seu aliado perfeito para a limpeza diária. Remove sujeiras, manchas e gorduras de forma eficaz, deixando um agradável e duradouro perfume de lavanda no ambiente. Indicado para pisos, azulejos, vidros, pias e outras superfícies laváveis.",
+			"price": "8.75",
+			"currency": "BRL",
+			"category_id": "higiene-limpeza",
+			"subcategory_id": "limpeza-casa",
+			"images": [
+				"https://placehold.co/600x400/E0E0E0/333333?text=PROD004-1"
+			],
+			"stock_status": "in_stock",
+			"tags": [
+				"limpador multiuso",
+				"limpeza",
+				"lavanda",
+				"casa",
+				"desinfetante"
+			],
+			"specifications": [
+				{
+					"name": "Volume",
+					"value": "1 Litro"
+				},
+				{
+					"name": "Fragrância",
+					"value": "Lavanda"
+				},
+				{
+					"name": "Tipo de Uso",
+					"value": "Doméstico"
+				}
+			],
+			"related_products": [
+				"PROD009",
+				"PROD003"
+			]
+		},
+		{
+			"id": "PROD005",
+			"name": "Caderno Universitário Capa Dura 10 Matérias 'Geometric'",
+			"slug": "caderno-universitario-10-materias-geometric",
+			"description_short": "Caderno universitário com 200 folhas, 10 matérias, capa dura com estampa geométrica moderna.",
+			"description_long": "Organize seus estudos com estilo! Este caderno universitário possui capa dura resistente com uma moderna estampa geométrica, 200 folhas pautadas de qualidade (papel offset 56g/m²), bolsa plástica para guardar trabalhos e anotações, folha de adesivos e 10 divisórias de matérias decoradas. Ideal para estudantes e universitários.",
+			"price": "28.50",
+			"currency": "BRL",
+			"category_id": "papelaria",
+			"subcategory_id": null,
+			"images": [
+				"https://placehold.co/600x400/E0E0E0/333333?text=PROD005-1",
+				"https://placehold.co/600x400/E0E0E0/333333?text=PROD005-2"
+			],
+			"stock_status": "in_stock",
+			"tags": [
+				"caderno",
+				"universitário",
+				"10 matérias",
+				"papelaria",
+				"estudo",
+				"geometrico"
+			],
+			"specifications": [
+				{
+					"name": "Número de Folhas",
+					"value": "200 folhas"
+				},
+				{
+					"name": "Número de Matérias",
+					"value": "10 Matérias"
+				},
+				{
+					"name": "Tipo de Capa",
+					"value": "Capa Dura"
+				},
+				{
+					"name": "Gramatura",
+					"value": "56g/m²"
+				}
+			],
+			"related_products": [
+				"PROD008",
+				"PROD001"
+			]
+		},
+		{
+			"id": "PROD006",
+			"name": "Rolo Papel de Seda Branco (10 Folhas)",
+			"slug": "rolo-papel-seda-branco-10-folhas",
+			"description_short": "Rolo com 10 folhas de papel de seda branco, perfeito para embalagens delicadas e artesanato.",
+			"description_long": "Dê um toque especial às suas embalagens e projetos de artesanato com nosso papel de seda branco de alta qualidade. Ideal para proteger itens delicados, preencher caixas de presente, criar decorações e muito mais. Cada rolo contém 10 folhas de tamanho padrão.",
+			"price": "4.90",
+			"currency": "BRL",
+			"category_id": "embalagens-presente",
+			"subcategory_id": null,
+			"images": [
+				"https://placehold.co/600x400/E0E0E0/333333?text=PROD006-1"
+			],
+			"stock_status": "in_stock",
+			"tags": [
+				"papel de seda",
+				"branco",
+				"embalagem",
+				"artesanato",
+				"presente"
+			],
+			"specifications": [
+				{
+					"name": "Cor",
+					"value": "Branco"
+				},
+				{
+					"name": "Quantidade",
+					"value": "10 Folhas por rolo"
+				},
+				{
+					"name": "Uso",
+					"value": "Embalagens, Artesanato"
+				}
+			],
+			"related_products": [
+				"PROD001"
+			]
+		},
+		{
+			"id": "PROD007",
+			"name": "Pacote Balões de Látex Nº9 Sortidos (50 Unidades)",
+			"slug": "pacote-baloes-latex-n9-sortidos-50-unidades",
+			"description_short": "Pacote com 50 balões de látex número 9 em cores vibrantes e sortidas. Ideal para decorações de festas.",
+			"description_long": "Alegre sua festa com nossos balões de látex coloridos! Este pacote contém 50 unidades de balões número 9, em cores sortidas e vibrantes, perfeitos para qualquer tipo de comemoração: aniversários, chás de bebê, eventos corporativos e muito mais. Material de alta qualidade, resistente e biodegradável.",
+			"price": "15.00",
+			"currency": "BRL",
+			"category_id": "artigos-festa",
+			"subcategory_id": null,
+			"images": [
+				"https://placehold.co/600x400/E0E0E0/333333?text=PROD007-1",
+				"https://placehold.co/600x400/E0E0E0/333333?text=PROD007-2"
+			],
+			"stock_status": "low_stock",
+			"tags": [
+				"balões",
+				"bexigas",
+				"festa",
+				"decoração",
+				"colorido",
+				"látex"
+			],
+			"specifications": [
+				{
+					"name": "Tamanho",
+					"value": "Nº 9"
+				},
+				{
+					"name": "Material",
+					"value": "Látex Biodegradável"
+				},
+				{
+					"name": "Quantidade",
+					"value": "50 Unidades"
+				},
+				{
+					"name": "Cores",
+					"value": "Sortidas"
+				}
+			],
+			"related_products": [
+				"PROD002"
+			]
+		},
+		{
+			"id": "PROD008",
+			"name": "Kit Canetas Esferográficas BIC Cristal",
+			"slug": "kit-canetas-esferograficas-bic-cristal",
+			"description_short": "Kit clássico de canetas esferográficas BIC Cristal com 4 cores.",
+			"description_long": "O clássico que nunca falha! O kit de canetas esferográficas BIC Cristal oferece escrita macia, precisa e duradoura. Ideal para uso escolar, no escritório ou em casa. Este pacote contém 4 canetas nas cores essenciais: azul, preta, vermelha e verde. Ponta média de 1.0mm.",
+			"price": "9.90",
+			"currency": "BRL",
+			"category_id": "papelaria",
+			"images": [
+				"https://placehold.co/600x400/E0E0E0/333333?text=PROD008-Kit",
+				"https://placehold.co/600x400/E0E0E0/333333?text=PROD008-Azul",
+				"https://placehold.co/600x400/E0E0E0/333333?text=PROD008-Vermelha"
+			],
+			"stock_status": "in_stock",
+			"tags": [
+				"caneta",
+				"bic",
+				"esferográfica",
+				"papelaria",
+				"kit",
+				"cores"
+			],
+			"specifications": [
+				{
+					"name": "Marca",
+					"value": "BIC"
+				},
+				{
+					"name": "Modelo",
+					"value": "Cristal"
+				},
+				{
+					"name": "Tipo de Ponta",
+					"value": "Média 1.0mm"
+				}
+			],
+			"available_colors": [
+				"Azul",
+				"Preta",
+				"Vermelha",
+				"Verde"
+			],
+			"default_color": "Azul",
+			"related_products": [
+				"PROD005"
+			]
+		},
+		{
+			"id": "PROD009",
+			"name": "Saco de Lixo Reforçado Azul 100L (10 Unidades)",
+			"slug": "saco-de-lixo-reforcado-azul-100l-10-unidades",
+			"description_short": "Pacote com 10 sacos de lixo reforçados na cor azul, capacidade para 100 litros. Super resistente.",
+			"description_long": "Para lixo pesado e grandes volumes, conte com a resistência dos nossos sacos de lixo reforçados. Com capacidade para 100 litros, são ideais para uso doméstico, comercial ou em condomínios. Fabricados com material de alta densidade, evitam rasgos e vazamentos. Cor azul.",
+			"price": "18.50",
+			"currency": "BRL",
+			"category_id": "higiene-limpeza",
+			"subcategory_id": "limpeza-casa",
+			"images": [
+				"https://placehold.co/600x400/E0E0E0/333333?text=PROD009-1"
+			],
+			"stock_status": "in_stock",
+			"tags": [
+				"saco de lixo",
+				"reforçado",
+				"100 litros",
+				"limpeza",
+				"resistente"
+			],
+			"specifications": [
+				{
+					"name": "Capacidade",
+					"value": "100 Litros"
+				},
+				{
+					"name": "Cor",
+					"value": "Azul"
+				},
+				{
+					"name": "Quantidade",
+					"value": "10 Unidades"
+				},
+				{
+					"name": "Material",
+					"value": "Polietileno de Alta Densidade"
+				}
+			],
+			"related_products": [
+				"PROD004"
+			]
+		},
+		{
+			"id": "PROD010",
+			"name": "Guardanapos de Papel Folha Dupla (Pacote com 50)",
+			"slug": "guardanapos-papel-folha-dupla-pct50",
+			"description_short": "Pacote com 50 guardanapos de papel de folha dupla, brancos, macios e absorventes.",
+			"description_long": "Indispensáveis para qualquer refeição ou evento, nossos guardanapos de papel de folha dupla oferecem maciez e alta absorção. Cor branca neutra, ideal para combinar com qualquer decoração de mesa. Pacote econômico com 50 unidades.",
+			"price": "6.00",
+			"currency": "BRL",
+			"category_id": "embalagens-geral",
+			"subcategory_id": null,
+			"images": [
+				"https://placehold.co/600x400/E0E0E0/333333?text=PROD010-1"
+			],
+			"stock_status": "in_stock",
+			"tags": [
+				"guardanapo",
+				"papel",
+				"folha dupla",
+				"descartável",
+				"mesa",
+				"festa"
+			],
+			"specifications": [
+				{
+					"name": "Tipo",
+					"value": "Folha Dupla"
+				},
+				{
+					"name": "Cor",
+					"value": "Branco"
+				},
+				{
+					"name": "Quantidade",
+					"value": "50 Unidades"
+				}
+			],
+			"related_products": [
+				"PROD002"
+			]
+		},
+		{
+			"id": "PROD011",
+			"name": "Caixa de Papelão para Transporte (Tamanho Médio)",
+			"slug":
+				"caixa-papelao-transporte-medio",
+			"description_short": "Caixa de papelão resistente para transporte e armazenamento, tamanho médio.",
+			"description_long": "Ideal para mudanças, armazenamento e transporte de produtos, nossa caixa de papelão é feita com material resistente e durável. Tamanho médio, perfeita para roupas, livros e itens diversos. Fácil de montar e desmontar, pode ser reutilizada várias vezes.",
+			"price": "5.00",
+			"currency": "BRL",
+			"category_id": "embalagens-geral",
+			"subcategory_id": null,
+			"images": [
+				"https://placehold.co/600x400/E0E0E0/333333?text=PROD011-1"
+			],
+			"stock_status": "in_stock",
+			"tags": [
+				"caixa de papelão",
+				"transporte",
+				"armazenamento",
+				"mudança",
+				"resistente"
+			],
+			"specifications": [
+				{
+					"name": "Material",
+					"value": "Papelão Ondulado"
+				},
+				{
+					"name": "Dimensões (LxCxA)",
+					"value": "40cm x 30cm x 20cm"
+				},
+				{
+					"name": "Capacidade",
+					"value": "Até 15kg"
+				}
+			],
+			"related_products": [
+				"PROD001",
+				"PROD006"
+			]
+		},
+		{
+			"id": "PROD012",
+			"name": "Fita Adesiva Transparente 48mm x 50m",
+			"slug": "fita-adesiva-transparente-48mmx50m",
+			"description_short": "Fita adesiva transparente, ideal para embalagem e uso geral. 48mm x 50m.",
+			"description_long": "A fita adesiva transparente é perfeita para embalagens, consertos e uso geral. Com 48mm de largura e 50 metros de comprimento, é resistente e fácil de cortar. Ideal para uso doméstico ou profissional.",
+			"price": "7.50",
+			"currency": "BRL",
+			"category_id": "embalagens-geral",
+			"subcategory_id": null,
+			"images": [
+				"https://placehold.co/600x400/E0E0E0/333333?text=PROD012-1"
+			],
+			"stock_status": "in_stock",
+			"tags": [
+				"fita adesiva",
+				"transparente",
+				"embalagem",
+				"uso geral"
+			],
+			"specifications": [
+				{
+					"name": "Largura",
+					"value": "48mm"
+				},
+				{
+					"name": "Comprimento",
+					"value": "50m"
+				},
+				{
+					"name": "Cor",
+					"value": "Transparente"
+				}
+			],
+			"related_products": [
+				"PROD011",
+				"PROD001"
+			]
+		},
+		{
+			"id": "PROD013",
+			"name": "Etiquetas Adesivas Brancas (Pacote com 100)",
+			"slug": "etiquetas-adesivas-brancas-pct100",
+			"description_short": "Pacote com 100 etiquetas adesivas brancas, tamanho A4, ideal para impressões.",
+			"description_long": "Nossas etiquetas adesivas brancas são perfeitas para organização, identificação e personalização. Compatíveis com impressoras a jato de tinta e laser. Cada pacote contém 100 etiquetas no tamanho A4, prontas para serem impressas ou escritas à mão.",
+			"price": "15.00",
+			"currency": "BRL",
+			"category_id": "papelaria",
+			"subcategory_id": null,
+			"images": [
+				"https://placehold.co/600x400/E0E0E0/333333?text=PROD013-1"
+			],
+			"stock_status": "in_stock",
+			"tags": [
+				"etiquetas adesivas",
+				"brancas",
+				"impressão",
+				"papelaria"
+			],
+			"specifications": [
+				{
+					"name": "Tamanho",
+					"value": "A4"
+				},
+				{
+					"name": "Quantidade",
+					"value": "100 Etiquetas"
+				},
+				{
+					"name": "Uso",
+					"value": "Impressão e Escrita"
+				}
+			],
+			"related_products": [
+				"PROD005"
+			]
+		},
+		{
+			"id": "PROD014",
+			"name": "Caneta Marcadora Permanente Preta (Ponta Fina)",
+			"slug": "caneta-marcadora-permanente-preta-ponta-fina",
+			"description_short": "Caneta marcadora permanente preta com ponta fina, ideal para escrita em diversos materiais.",
+			"description_long": "A caneta marcadora permanente preta com ponta fina é perfeita para escrever em papel, plástico, metal e vidro. Sua tinta à base de álcool é resistente à água e ao desbotamento, garantindo que suas anotações fiquem visíveis por muito mais tempo. Ideal para uso escolar, escritório ou artesanato.",
+			"price": "3.50",
+			"currency": "BRL",
+			"category_id": "papelaria",
+			"subcategory_id": null,
+			"images": [
+				"https://placehold.co/600x400/E0E0E0/333333?text=PROD014-1"
+			],
+			"stock_status": "in_stock",
+			"tags": [
+				"caneta marcadora",
+				"permanente",
+				"preta",
+				"ponta fina"
+			],
+			"specifications": [
+				{
+					"name": "Cor da Tinta",
+					"value": "Preto"
+				},
+				{
+					"name": "Tipo de Ponta",
+					"value": "Fina"
+				},
+				{
+					"name": "Uso",
+					"value": "Diversos Materiais"
+				}
+			],
+			"related_products": [
+				"PROD008"
+			]
+		},
+		{
+			"id": "PROD015",
+			"name": "Copo Descartável Plástico (Pacote com 100)",
+			"slug": "copo-descartavel-plastico-pct100",
+			"description_short": "Pacote com 100 copos descartáveis de plástico, ideal para festas e eventos.",
+			"description_long": "Os copos descartáveis de plástico são práticos e versáteis, perfeitos para festas, eventos e uso diário. Cada pacote contém 100 copos de 200ml, resistentes e transparentes. Ideais para bebidas frias e quentes.",
+			"price": "20.00",
+			"currency": "BRL",
+			"category_id": "artigos-festa",
+			"subcategory_id": null,
+			"images": [
+				"https://placehold.co/600x400/E0E0E0/333333?text=PROD015-1"
+			],
+			"stock_status": "in_stock",
+			"tags": [
+				"copos descartáveis",
+				"plástico",
+				"festa",
+				"evento"
+			],
+			"specifications": [
+				{
+					"name": "Capacidade",
+					"value": "200ml"
+				},
+				{
+					"name": "Quantidade",
+					"value": "100 Copos"
+				},
+				{
+					"name": "Material",
+					"value": "Plástico PS"
+				}
+			],
+			"related_products": [
+				"PROD002"
+			]
+		},
+		{
+			"id": "PROD016",
+			"name": "Caixa de Bombom Sortido (500g)",
+			"slug": "caixa-bombom-sortido-500g",
+			"description_short": "Caixa com 500g de bombons sortidos, ideal para presentear ou degustar.",
+			"description_long": "Delicie-se com nossa caixa de bombons sortidos! Com 500g de chocolates finos, esta embalagem é perfeita para presentear ou saborear em momentos especiais. Variedade de sabores e texturas, todos feitos com ingredientes selecionados. Ideal para festas, datas comemorativas ou como mimo.",
+			"price": "35.00",
+			"currency": "BRL",
+			"category_id": "embalagens-geral",
+			"subcategory_id": null,
+			"images": [
+				"https://placehold.co/600x400/E0E0E0/333333?text=PROD016-1"
+			],
+			"stock_status": "in_stock",
+			"tags": [
+				"bombom",
+				"sortido",
+				"chocolate",
+				"presentear"
+			],
+			"specifications": [
+				{
+					"name": "Peso Líquido",
+					"value": "500g"
+				},
+				{
+					"name": "Tipo de Chocolate",
+					"value": "Sortido"
+				}
+			],
+			"related_products": [
+				"PROD001"
+			]
+		}
+	]
+}

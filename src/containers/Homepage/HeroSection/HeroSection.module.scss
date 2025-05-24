@@ -1,0 +1,87 @@
+@import '../../../styles/variables';
+
+.hero {
+	background-color: $primary-color;
+	color: $text-color-on-primary;
+	padding: $spacer-xxl $spacer-md;
+	text-align: center;
+	position: relative;
+	overflow: hidden;
+	display: flex;
+	align-items: center;
+	min-height: 60vh;
+}
+
+.heroContent {
+	max-width: $container-max-width-lg;
+	margin: 0 auto;
+	position: relative;
+	z-index: 2;
+
+	h1 {
+		font-size: $h1-font-size * 0.85;
+		color: $brand-white;
+		margin-bottom: $spacer-md;
+		font-weight: $font-weight-bold;
+		text-shadow: 1px 1px 2px rgba($brand-black, 0.2);
+	}
+}
+
+.subheadline {
+	font-size: $font-size-lg;
+	margin-bottom: $spacer-lg;
+	opacity: 0.9;
+	font-weight: $font-weight-normal;
+	max-width: 70ch;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.ctaButton {
+	@include button-base;
+	background-color: $accent-color;
+	color: $text-color-on-accent;
+	border-color: $accent-color;
+	padding: $spacer-sm $spacer-xl;
+	font-size: $font-size-lg;
+	font-weight: $font-weight-bold;
+	text-transform: uppercase;
+	letter-spacing: 0.5px;
+	box-shadow: $box-shadow-md;
+
+	&:hover,
+	&:focus {
+		background-color: darken($accent-color, 8%);
+		border-color: darken($accent-color, 10%);
+		color: $text-color-on-accent;
+		box-shadow: $box-shadow-lg;
+		transform: translateY(-2px);
+	}
+
+	&:focus {
+		outline: 2px solid $brand-white;
+		outline-offset: 2px;
+	}
+}
+
+@include media-breakpoint-down(sm) {
+	.hero {
+		min-height: 50vh;
+		padding: $spacer-xl $spacer-md;
+	}
+
+	.heroContent {
+		h1 {
+			font-size: $h1-font-size * 0.7;
+		}
+	}
+
+	.subheadline {
+		font-size: $font-size-base;
+	}
+
+	.ctaButton {
+		padding: $spacer-sm $spacer-lg;
+		font-size: $font-size-base;
+	}
+}
