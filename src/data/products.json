@@ -43,6 +43,27 @@
 			"description": "Soluções práticas para o dia a dia e para seu negócio."
 		}
 	],
+	"featuredProductIds": [
+		"PROD001",
+		"PROD005",
+		"PROD007",
+		"PROD011",
+		"PROD016"
+	],
+	"newArrivalProductIds": [
+		"PROD016",
+		"PROD015",
+		"PROD014",
+		"PROD013",
+		"PROD012"
+	],
+	"bestSellerProductIds": [
+		"PROD002",
+		"PROD005",
+		"PROD001",
+		"PROD008",
+		"PROD011"
+	],
 	"products": [
 		{
 			"id": "PROD001",
@@ -83,7 +104,8 @@
 			],
 			"related_products": [
 				"PROD006",
-				"PROD008"
+				"PROD008",
+				"PROD012"
 			]
 		},
 		{
@@ -124,7 +146,8 @@
 			],
 			"related_products": [
 				"PROD007",
-				"PROD010"
+				"PROD010",
+				"PROD015"
 			]
 		},
 		{
@@ -250,7 +273,8 @@
 			],
 			"related_products": [
 				"PROD008",
-				"PROD001"
+				"PROD013",
+				"PROD014"
 			]
 		},
 		{
@@ -289,7 +313,8 @@
 				}
 			],
 			"related_products": [
-				"PROD001"
+				"PROD001",
+				"PROD016"
 			]
 		},
 		{
@@ -334,7 +359,8 @@
 				}
 			],
 			"related_products": [
-				"PROD002"
+				"PROD002",
+				"PROD015"
 			]
 		},
 		{
@@ -346,6 +372,7 @@
 			"price": "9.90",
 			"currency": "BRL",
 			"category_id": "papelaria",
+			"subcategory_id": null,
 			"images": [
 				"https://placehold.co/600x400/E0E0E0/333333?text=PROD008-Kit",
 				"https://placehold.co/600x400/E0E0E0/333333?text=PROD008-Azul",
@@ -382,7 +409,9 @@
 			],
 			"default_color": "Azul",
 			"related_products": [
-				"PROD005"
+				"PROD005",
+				"PROD013",
+				"PROD014"
 			]
 		},
 		{
@@ -465,16 +494,16 @@
 				}
 			],
 			"related_products": [
-				"PROD002"
+				"PROD002",
+				"PROD015"
 			]
 		},
 		{
 			"id": "PROD011",
 			"name": "Caixa de Papelão para Transporte (Tamanho Médio)",
-			"slug":
-				"caixa-papelao-transporte-medio",
-			"description_short": "Caixa de papelão resistente para transporte e armazenamento, tamanho médio.",
-			"description_long": "Ideal para mudanças, armazenamento e transporte de produtos, nossa caixa de papelão é feita com material resistente e durável. Tamanho médio, perfeita para roupas, livros e itens diversos. Fácil de montar e desmontar, pode ser reutilizada várias vezes.",
+			"slug": "caixa-papelao-transporte-medio",
+			"description_short": "Caixa de papelão ondulado resistente para transporte e armazenamento, tamanho médio.",
+			"description_long": "Ideal para mudanças, e-commerce, armazenamento e transporte de produtos, nossa caixa de papelão é feita com material ondulado de qualidade, garantindo proteção aos seus itens. Tamanho médio, versátil para diversas necessidades. Fácil de montar e desmontar, pode ser reutilizada. Uma solução econômica e sustentável.",
 			"price": "5.00",
 			"currency": "BRL",
 			"category_id": "embalagens-geral",
@@ -488,34 +517,36 @@
 				"transporte",
 				"armazenamento",
 				"mudança",
-				"resistente"
+				"e-commerce",
+				"ondulado"
 			],
 			"specifications": [
 				{
 					"name": "Material",
-					"value": "Papelão Ondulado"
+					"value": "Papelão Ondulado Tipo B"
 				},
 				{
-					"name": "Dimensões (LxCxA)",
-					"value": "40cm x 30cm x 20cm"
+					"name": "Dimensões Externas (CxLxA)",
+					"value": "40cm x 30cm x 25cm"
 				},
 				{
-					"name": "Capacidade",
-					"value": "Até 15kg"
+					"name": "Cor",
+					"value": "Parda"
 				}
 			],
 			"related_products": [
+				"PROD012",
 				"PROD001",
 				"PROD006"
 			]
 		},
 		{
 			"id": "PROD012",
-			"name": "Fita Adesiva Transparente 48mm x 50m",
-			"slug": "fita-adesiva-transparente-48mmx50m",
-			"description_short": "Fita adesiva transparente, ideal para embalagem e uso geral. 48mm x 50m.",
-			"description_long": "A fita adesiva transparente é perfeita para embalagens, consertos e uso geral. Com 48mm de largura e 50 metros de comprimento, é resistente e fácil de cortar. Ideal para uso doméstico ou profissional.",
-			"price": "7.50",
+			"name": "Fita Adesiva Transparente Larga (48mm x 100m)",
+			"slug": "fita-adesiva-transparente-larga-48mmx100m",
+			"description_short": "Rolo de fita adesiva transparente e resistente, 48mm de largura por 100 metros de comprimento. Ideal para fechar caixas.",
+			"description_long": "Essencial para qualquer operação de embalagem, esta fita adesiva transparente oferece alta aderência e resistência. Com 48mm de largura e um rolo generoso de 100 metros, é perfeita para fechar caixas de papelão, pacotes e para uso geral em escritório ou expedição. Garante segurança e um acabamento profissional.",
+			"price": "11.50",
 			"currency": "BRL",
 			"category_id": "embalagens-geral",
 			"subcategory_id": null,
@@ -527,7 +558,8 @@
 				"fita adesiva",
 				"transparente",
 				"embalagem",
-				"uso geral"
+				"durex largo",
+				"caixas"
 			],
 			"specifications": [
 				{
@@ -536,11 +568,15 @@
 				},
 				{
 					"name": "Comprimento",
-					"value": "50m"
+					"value": "100 metros"
 				},
 				{
 					"name": "Cor",
 					"value": "Transparente"
+				},
+				{
+					"name": "Material",
+					"value": "Polipropileno"
 				}
 			],
 			"related_products": [
@@ -550,11 +586,11 @@
 		},
 		{
 			"id": "PROD013",
-			"name": "Etiquetas Adesivas Brancas (Pacote com 100)",
-			"slug": "etiquetas-adesivas-brancas-pct100",
-			"description_short": "Pacote com 100 etiquetas adesivas brancas, tamanho A4, ideal para impressões.",
-			"description_long": "Nossas etiquetas adesivas brancas são perfeitas para organização, identificação e personalização. Compatíveis com impressoras a jato de tinta e laser. Cada pacote contém 100 etiquetas no tamanho A4, prontas para serem impressas ou escritas à mão.",
-			"price": "15.00",
+			"name": "Bloco de Anotações Autoadesivas (Post-it Style) Amarelo",
+			"slug": "bloco-anotacoes-autoadesivas-amarelo",
+			"description_short": "Bloco com 100 folhas de anotações autoadesivas (76x76mm) na cor amarela. Ideal para lembretes.",
+			"description_long": "Nunca mais esqueça uma tarefa importante! Nosso bloco de anotações autoadesivas tipo Post-it é perfeito para lembretes rápidos, marcar páginas e organizar suas ideias. Contém 100 folhas de 76x76mm na vibrante cor amarela, com adesivo de qualidade que permite reposicionamento.",
+			"price": "4.20",
 			"currency": "BRL",
 			"category_id": "papelaria",
 			"subcategory_id": null,
@@ -563,36 +599,40 @@
 			],
 			"stock_status": "in_stock",
 			"tags": [
-				"etiquetas adesivas",
-				"brancas",
-				"impressão",
-				"papelaria"
+				"bloco de notas",
+				"autoadesivo",
+				"post-it",
+				"lembrete",
+				"papelaria",
+				"amarelo"
 			],
 			"specifications": [
 				{
-					"name": "Tamanho",
-					"value": "A4"
+					"name": "Cor",
+					"value": "Amarelo"
+				},
+				{
+					"name": "Dimensões",
+					"value": "76mm x 76mm"
 				},
 				{
 					"name": "Quantidade",
-					"value": "100 Etiquetas"
-				},
-				{
-					"name": "Uso",
-					"value": "Impressão e Escrita"
+					"value": "100 Folhas"
 				}
 			],
 			"related_products": [
-				"PROD005"
+				"PROD005",
+				"PROD008",
+				"PROD014"
 			]
 		},
 		{
 			"id": "PROD014",
-			"name": "Caneta Marcadora Permanente Preta (Ponta Fina)",
-			"slug": "caneta-marcadora-permanente-preta-ponta-fina",
-			"description_short": "Caneta marcadora permanente preta com ponta fina, ideal para escrita em diversos materiais.",
-			"description_long": "A caneta marcadora permanente preta com ponta fina é perfeita para escrever em papel, plástico, metal e vidro. Sua tinta à base de álcool é resistente à água e ao desbotamento, garantindo que suas anotações fiquem visíveis por muito mais tempo. Ideal para uso escolar, escritório ou artesanato.",
-			"price": "3.50",
+			"name": "Caneta Marcadora Permanente Ponta Dupla (Preta)",
+			"slug": "caneta-marcadora-permanente-ponta-dupla-preta",
+			"description_short": "Caneta marcadora permanente preta com ponta dupla (fina e grossa). Escreve em diversas superfícies.",
+			"description_long": "Versatilidade e durabilidade em uma só caneta! Esta marcadora permanente preta possui ponta dupla: uma fina para detalhes e escrita precisa, e outra chanfrada mais grossa para preenchimento e destaque. Tinta de secagem rápida, resistente à água, ideal para papel, plástico, metal, vidro e mais.",
+			"price": "7.80",
 			"currency": "BRL",
 			"category_id": "papelaria",
 			"subcategory_id": null,
@@ -601,36 +641,39 @@
 			],
 			"stock_status": "in_stock",
 			"tags": [
-				"caneta marcadora",
-				"permanente",
-				"preta",
-				"ponta fina"
+				"marcador permanente",
+				"ponta dupla",
+				"caneta preta",
+				"papelaria",
+				"escritório"
 			],
 			"specifications": [
 				{
 					"name": "Cor da Tinta",
-					"value": "Preto"
+					"value": "Preta"
 				},
 				{
 					"name": "Tipo de Ponta",
-					"value": "Fina"
+					"value": "Dupla (Fina e Grossa/Chanfrada)"
 				},
 				{
-					"name": "Uso",
-					"value": "Diversos Materiais"
+					"name": "Tipo de Tinta",
+					"value": "Permanente, à base de álcool"
 				}
 			],
 			"related_products": [
-				"PROD008"
+				"PROD008",
+				"PROD013",
+				"PROD005"
 			]
 		},
 		{
 			"id": "PROD015",
-			"name": "Copo Descartável Plástico (Pacote com 100)",
-			"slug": "copo-descartavel-plastico-pct100",
-			"description_short": "Pacote com 100 copos descartáveis de plástico, ideal para festas e eventos.",
-			"description_long": "Os copos descartáveis de plástico são práticos e versáteis, perfeitos para festas, eventos e uso diário. Cada pacote contém 100 copos de 200ml, resistentes e transparentes. Ideais para bebidas frias e quentes.",
-			"price": "20.00",
+			"name": "Pratos Descartáveis de Papel Biodegradável (25 Unidades)",
+			"slug": "pratos-descartaveis-papel-biodegradavel-25un",
+			"description_short": "Pacote com 25 pratos de papel biodegradável, 18cm, resistentes. Opção ecológica para sua festa.",
+			"description_long": "Celebre de forma consciente com nossos pratos de papel biodegradável! Com 18cm de diâmetro, são perfeitos para servir bolos, salgados e sobremesas. Feitos de material compostável, são uma alternativa ecológica aos pratos de plástico tradicionais, sem abrir mão da praticidade e resistência. Pacote com 25 unidades.",
+			"price": "12.90",
 			"currency": "BRL",
 			"category_id": "artigos-festa",
 			"subcategory_id": null,
@@ -639,61 +682,72 @@
 			],
 			"stock_status": "in_stock",
 			"tags": [
-				"copos descartáveis",
-				"plástico",
+				"prato descartável",
+				"papel",
+				"biodegradável",
+				"ecológico",
 				"festa",
-				"evento"
+				"18cm"
 			],
 			"specifications": [
 				{
-					"name": "Capacidade",
-					"value": "200ml"
+					"name": "Material",
+					"value": "Papel Biodegradável (Cana de açúcar ou similar)"
+				},
+				{
+					"name": "Diâmetro",
+					"value": "18cm"
 				},
 				{
 					"name": "Quantidade",
-					"value": "100 Copos"
-				},
-				{
-					"name": "Material",
-					"value": "Plástico PS"
+					"value": "25 Unidades"
 				}
 			],
 			"related_products": [
-				"PROD002"
+				"PROD002",
+				"PROD007",
+				"PROD010"
 			]
 		},
 		{
 			"id": "PROD016",
-			"name": "Caixa de Bombom Sortido (500g)",
-			"slug": "caixa-bombom-sortido-500g",
-			"description_short": "Caixa com 500g de bombons sortidos, ideal para presentear ou degustar.",
-			"description_long": "Delicie-se com nossa caixa de bombons sortidos! Com 500g de chocolates finos, esta embalagem é perfeita para presentear ou saborear em momentos especiais. Variedade de sabores e texturas, todos feitos com ingredientes selecionados. Ideal para festas, datas comemorativas ou como mimo.",
-			"price": "35.00",
+			"name": "Sacola de Papel Kraft com Alça Torcida (Pequena)",
+			"slug": "sacola-papel-kraft-alca-torcida-pequena",
+			"description_short": "Sacola de papel Kraft pardo com alça torcida, tamanho pequeno. Ideal para lembrancinhas e pequenos presentes.",
+			"description_long": "A Sacola de Papel Kraft com Alça Torcida é a escolha perfeita para entregar seus produtos ou presentes com um toque rústico e charmoso. Resistente e versátil, este modelo pequeno é ideal para lembrancinhas, bijuterias, cosméticos e pequenos objetos. Pode ser personalizada com carimbos ou adesivos.\nDimensões: 15cm (largura) x 20cm (altura) x 8cm (sanfona).",
+			"price": "1.80",
 			"currency": "BRL",
-			"category_id": "embalagens-geral",
+			"category_id": "embalagens-presente",
 			"subcategory_id": null,
 			"images": [
 				"https://placehold.co/600x400/E0E0E0/333333?text=PROD016-1"
 			],
 			"stock_status": "in_stock",
 			"tags": [
-				"bombom",
-				"sortido",
-				"chocolate",
-				"presentear"
+				"sacola de papel",
+				"kraft",
+				"alça torcida",
+				"lembrancinha",
+				"embalagem"
 			],
 			"specifications": [
 				{
-					"name": "Peso Líquido",
-					"value": "500g"
+					"name": "Material",
+					"value": "Papel Kraft"
 				},
 				{
-					"name": "Tipo de Chocolate",
-					"value": "Sortido"
+					"name": "Tipo de Alça",
+					"value": "Papel Torcido"
+				},
+				{
+					"name": "Dimensões (LxAxS)",
+					"value": "15cm x 20cm x 8cm"
 				}
 			],
 			"related_products": [
-				"PROD001"
+				"PROD001",
+				"PROD006",
+				"PROD012"
 			]
 		}
 	]

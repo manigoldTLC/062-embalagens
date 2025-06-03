@@ -1,0 +1,81 @@
+@import '../../styles/variables';
+
+.buscaPageContainer {
+	max-width: $container-max-width-xl;
+	margin: 0 auto $spacer-xxl auto;
+	padding: 0 $spacer-md;
+}
+
+.pageHeader {
+	text-align: left;
+	margin-top: $spacer-lg; // Espaço após a FilterBar
+	margin-bottom: $spacer-lg;
+
+	h1 {
+		font-size: $h2-font-size * 1.15; // Um pouco menor que o título principal da home
+		color: $neutral-darkest;
+		font-weight: $font-weight-bold;
+		margin-bottom: $spacer-xs / 2;
+		word-break: break-word;
+	}
+
+	.resultsCount {
+		font-size: $font-size-base;
+		color: $neutral-dark;
+	}
+}
+
+.productsGrid {
+	display: grid;
+	gap: 0.5rem;
+	grid-template-columns: repeat(2, 1fr);
+
+	@include media-breakpoint-up(sm) {
+		gap: 1rem; // Gap maior para telas um pouco maiores
+	}
+
+	@include media-breakpoint-up(md) {
+		grid-template-columns: repeat(3, 1fr);
+	}
+
+	@include media-breakpoint-up(lg) {
+		grid-template-columns: repeat(4, 1fr);
+	}
+}
+
+.noResults {
+	text-align: center;
+	padding: $spacer-xl 0;
+	font-size: $font-size-base; // Ajustado
+	color: $neutral-medium;
+	background-color: $brand-white;
+	border-radius: $border-radius-md;
+	margin-top: $spacer-lg;
+	box-shadow: $box-shadow-sm;
+
+	p {
+		margin-bottom: $spacer-lg;
+	}
+}
+
+.actionButton {
+	@include button-base;
+	background-color: $primary-color;
+	color: $text-color-on-primary;
+	border-color: $primary-color;
+	padding: $spacer-sm $spacer-lg;
+	text-decoration: none;
+	font-weight: $font-weight-medium;
+
+	&:hover {
+		background-color: $primary-color-dark;
+		border-color: $primary-color-dark;
+	}
+}
+
+.loadingState {
+	text-align: center;
+	padding: $spacer-xxl 0;
+	font-size: $font-size-lg;
+	color: $neutral-medium;
+}

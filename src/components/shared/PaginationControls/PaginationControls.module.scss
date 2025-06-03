@@ -1,0 +1,87 @@
+@import '../../../styles/variables';
+
+.paginationContainer {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: space-between;
+	margin-top: $spacer-xl;
+	padding-top: $spacer-lg;
+	border-top: 1px solid $neutral-lightest;
+	gap: $spacer-md;
+
+	@include media-breakpoint-up(md) {
+		flex-direction: row;
+	}
+}
+
+.paginationInfo {
+	font-size: $font-size-sm;
+	color: $neutral-dark;
+	margin-bottom: $spacer-sm;
+
+	@include media-breakpoint-up(md) {
+		margin-bottom: 0;
+	}
+}
+
+.paginationList {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+	display: flex;
+	align-items: center;
+	gap: $spacer-xs / 2; // Espaço entre os botões de página
+}
+
+.pageButton {
+	@include button-base; // Reutiliza o mixin se tiver um para botões genéricos
+	background-color: $brand-white;
+	color: $primary-color-dark;
+	border: 1px solid $neutral-light;
+	padding: $spacer-xs $spacer-sm;
+	min-width: 40px; // Garante tamanho mínimo para toque
+	height: 40px;
+	border-radius: $border-radius-sm;
+	font-size: $font-size-sm;
+	font-weight: $font-weight-medium;
+	cursor: pointer;
+	transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+
+	&:hover:not(:disabled) {
+		background-color: $neutral-ultra-light;
+		border-color: $neutral-medium;
+	}
+
+	&:disabled {
+		color: $neutral-medium;
+		background-color: $neutral-lightest;
+		cursor: not-allowed;
+		opacity: 0.7;
+	}
+
+	&.activePage {
+		background-color: $primary-color;
+		color: $brand-white;
+		border-color: $primary-color;
+		font-weight: $font-weight-bold;
+	}
+}
+
+.prevNextButton {
+	display: inline-flex;
+	align-items: center;
+	gap: $spacer-xs / 2;
+
+	svg {
+		font-size: 0.8em;
+	}
+}
+
+.ellipsis {
+	padding: $spacer-xs $spacer-sm;
+	color: $neutral-dark;
+	display: flex;
+	align-items: center;
+	height: 40px;
+}

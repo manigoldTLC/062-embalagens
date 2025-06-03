@@ -1,112 +1,198 @@
-// src/app/produtos/produtos.module.scss
-@import '../../styles/variables'; // Ajuste o caminho conforme sua estrutura
+@import '../../styles/variables';
 
-.productsPageContainer {
-	max-width: $container-max-width-xl; // Ou $container-max-width-xxl para mais espaço
-	margin: 0 auto;
-	padding: $spacer-lg $spacer-md; // 24px 16px
+.product-listing {
+  background-color: $brand-white;
+  padding-bottom: $spacer-xxl;
 }
 
-.pageHeader {
-	text-align: center;
-	margin-bottom: $spacer-xl; // 32px
-
-	h1 {
-		font-size: $h2-font-size; // Usar H2 para o título da página, H1 já deve estar no Header/Logo
-		// ou manter H1 aqui se esta for a principal heading da página.
-		// Para SEO, é comum ter um H1 descritivo na página.
-		color: $primary-color-dark;
-		margin-bottom: $spacer-sm;
-	}
-
-	p {
-		font-size: $font-size-lg;
-		color: $neutral-dark;
-		max-width: 70ch;
-		margin-left: auto;
-		margin-right: auto;
-	}
+.product-listing__container {
+  max-width: $container-max-width-xl; // Ou a largura que você definiu para ser "bem larga"
+  margin: 0 auto;
+  padding: $spacer-sm $spacer-md; // Padding geral para o conteúdo da página
+  @include media-breakpoint-up(lg) {
+    padding: $spacer-md $spacer-lg;
+  }
 }
 
-.filtersToolbar {
-	// Placeholder para futuros filtros
-	margin-top: $spacer-lg;
-	padding: $spacer-md;
-	background-color: $neutral-ultra-light;
-	border-radius: $border-radius-md;
-	// ... estilos para filtros
+.product-listing__breadcrumbs {
+  font-size: $font-size-sm * 0.9;
+  color: $neutral-dark;
+  margin-bottom: $spacer-lg;
+  padding-top: $spacer-sm;
+  a {
+    color: $neutral-dark;
+    text-decoration: none;
+    &:hover {
+      color: $primary-color;
+    }
+  }
+  span {
+    margin: 0 $spacer-xs / 1.5;
+    &:last-child {
+      font-weight: $font-weight-normal;
+      color: $neutral-medium;
+    }
+  }
 }
 
-.productsGrid {
-	display: grid;
-	gap: $spacer-lg; // 24px de espaço entre os cards
-
-	// Layout da Grid:
-	grid-template-columns: 1fr; // Padrão mobile (1 coluna)
-
-	@include media-breakpoint-up(sm) {
-		// 576px+ (2 colunas)
-		grid-template-columns: repeat(2, 1fr);
-	}
-
-	@include media-breakpoint-up(md) {
-		// 768px+ (3 colunas)
-		// Ajuste o minmax para o tamanho desejado do seu ProductCard
-		grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-	}
-
-	// Se quiser forçar 4 colunas em telas maiores:
-	// @include media-breakpoint-up(xl) { // 1200px+
-	//   grid-template-columns: repeat(4, 1fr);
-	// }
+.product-listing__header {
+  text-align: center;
+  margin-bottom: $spacer-xl;
 }
 
-.noProducts {
-	text-align: center;
-	font-size: $font-size-lg;
-	color: $neutral-medium;
-	padding: $spacer-xxl 0; // Bastante espaço se não houver produtos
+.product-listing__title {
+  font-size: $h1-font-size * 1.1; // Ajuste para o tamanho da referência
+  font-weight: $font-weight-bold; // Ou 700, 800 dependendo da fonte
+  color: $neutral-darkest;
+  margin-bottom: $spacer-sm;
+  line-height: 1.2;
 }
 
-.categoryNav {
-	margin-bottom: $spacer-xl; // Espaço abaixo da navegação de categorias
-	padding-bottom: $spacer-md;
-	border-bottom: 1px solid $border-color;
-
-	ul {
-		list-style: none;
-		padding: 0;
-		margin: 0;
-		display: flex;
-		flex-wrap: wrap; // Permite que os itens quebrem linha em telas menores
-		gap: $spacer-sm; // Espaço entre os links das categorias
-		justify-content: center; // Centraliza os links das categorias
-	}
-
-	a {
-		display: inline-block;
-		padding: $spacer-xs $spacer-md; // 4px 16px
-		color: $primary-color-dark;
-		font-weight: $font-weight-medium;
-		border-radius: $border-radius-pill; // Bordas arredondadas tipo "pill"
-		text-decoration: none;
-		border: 1px solid transparent; // Para manter o layout no hover/active
-		@include transition(background-color, color, border-color);
-
-		&:hover,
-		&:focus {
-			background-color: lighten($primary-color-light, 15%);
-			color: $primary-color-dark;
-			border-color: $primary-color-light;
-			text-decoration: none;
-		}
-
-		&.activeCategory {
-			// Estilo para a categoria ativa
-			background-color: $primary-color;
-			color: $text-color-on-primary; // Texto branco
-			border-color: $primary-color;
-			font-weight: $font-weight-bold;
-		}
-	}
+.product-listing__description {
+  font-size: $font-size-base;
+  color: $neutral-dark;
+  line-height: 1.6;
+  max-width: 75ch;
+  margin: 0 auto $spacer-lg auto; // Centraliza e adiciona margem inferior
 }
+
+.category-tabs-nav {
+  display: flex;
+  justify-content: center; // Centraliza as abas
+  align-items: center;
+  margin-bottom: $spacer-lg * 1.5; // Espaço antes da barra de filtros
+  overflow-x: auto; // Permite scroll horizontal se muitas abas
+  padding-bottom: $spacer-sm; // Espaço para a borda inferior da aba ativa não cortar
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none; // Firefox
+  &::-webkit-scrollbar { display: none; } // Chrome, Safari, Opera
+}
+
+.category-tabs-nav__list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  gap: $spacer-xs; // Espaço entre as abas
+}
+
+.category-tabs-nav__item {
+  // Para o botão "MORE", se houver
+  &--more {
+    margin-left: $spacer-sm;
+    .category-tabs-nav__button {
+      // Estilo um pouco diferente para o "MORE"
+      border: 1px solid $neutral-light;
+      padding: calc($spacer-xs + 1px) calc($spacer-sm + $spacer-xs);
+    }
+  }
+}
+
+.category-tabs-nav__button {
+  @include button-base; // Se tiver um mixin base para botões
+  background-color: $neutral-ultra-light; // Fundo claro para abas inativas
+  color: $neutral-dark;
+  border: 1px solid $neutral-lightest; // Borda sutil
+  padding: calc($spacer-xs + 2px) $spacer-lg; // Padding generoso
+  font-size: $font-size-sm;
+  font-weight: $font-weight-medium;
+  border-radius: $border-radius-pill; // Abas bem arredondadas
+  cursor: pointer;
+  transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+  white-space: nowrap;
+  text-transform: uppercase; // Como na referência
+  letter-spacing: 0.5px;
+
+  &:hover, &:focus {
+    background-color: $neutral-lightest;
+    border-color: $neutral-light;
+    color: $neutral-darkest;
+    outline: none;
+  }
+
+  &--active {
+    background-color: $neutral-darkest; // Aba ativa escura
+    color: $brand-white; // Texto branco na aba ativa
+    border-color: $neutral-darkest;
+    font-weight: $font-weight-semibold;
+    box-shadow: $box-shadow-sm;
+  }
+}
+
+// Wrapper para a FilterBarContainer (se precisar de espaçamento específico)
+// .product-listing__filters-wrapper {
+// margin-bottom: $spacer-lg;
+// }
+
+.product-listing__results-info {
+  display: flex;
+  justify-content: space-between; // Para alinhar a contagem
+  align-items: center;
+  margin-bottom: $spacer-md;
+  padding-top: $spacer-sm;
+  border-top: 1px solid $neutral-lightest;
+  border-bottom: 1px solid $neutral-lightest; // Linha abaixo da contagem e filtros/sort
+  padding-bottom: $spacer-md;
+}
+
+.product-listing__results-count {
+  font-size: $font-size-sm;
+  color: $neutral-dark;
+}
+
+.product-listing__grid {
+  display: grid;
+  gap: 0.5rem;
+  grid-template-columns: repeat(2, 1fr);
+  margin-bottom: $spacer-xl;
+
+  @include media-breakpoint-up(sm){ gap: 1rem; }
+  @include media-breakpoint-up(md) { grid-template-columns: repeat(3, 1fr); }
+  @include media-breakpoint-up(lg) { grid-template-columns: repeat(4, 1fr); }
+}
+
+.product-listing__no-results {
+  text-align: center;
+  padding: $spacer-xl $spacer-md;
+  font-size: $font-size-base;
+  color: $neutral-medium;
+  background-color: $brand-white;
+  border-radius: $border-radius-md;
+  margin-top: $spacer-lg;
+  min-height: 200px; // Para ocupar algum espaço
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  p { margin-bottom: $spacer-lg; }
+}
+
+.product-listing__action-button { // Botão para "Ver Todos os Produtos" no .noResults
+  @include button-base;
+  background-color: $primary-color;
+  color: $text-color-on-primary;
+  border-color: $primary-color;
+  padding: $spacer-sm $spacer-lg;
+  text-decoration: none;
+  font-weight: $font-weight-medium;
+  &:hover {
+    background-color: $primary-color-dark;
+    border-color: $primary-color-dark;
+  }
+}
+
+.product-listing__loading,
+.loadingStatePage {
+  text-align: center;
+  padding: $spacer-xxl 0;
+  font-size: $font-size-lg;
+  color: $neutral-medium;
+  min-height: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+// Os estilos para FilterBarContainer e PaginationControls virão de seus próprios módulos
+// ou de estilos globais/compartilhados se você os criou assim.
+// Certifique-se que eles se encaixem visualmente.

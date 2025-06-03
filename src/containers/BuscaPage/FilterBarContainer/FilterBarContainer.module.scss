@@ -1,0 +1,21 @@
+@import '../../../styles/variables';
+
+.filterBar {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	align-items: center;
+	gap: $spacer-md;
+	padding: $spacer-md;
+	background-color: $brand-white;
+	border-radius: $border-radius-lg;
+	box-shadow: $box-shadow-sm;
+	margin-bottom: $spacer-xl;
+}
+
+.filtersGroup {
+	display: flex;
+	flex-wrap: wrap;
+	gap: $spacer-sm;
+	align-items: center;
+}

@@ -1,0 +1,102 @@
+@import '../../../styles/variables';
+
+.carouselWrapperOuter {
+	position: relative;
+	width: 100%;
+	padding-top: $spacer-sm;    // Ex: 8px
+  	padding-bottom: $spacer-sm
+}
+
+.carouselSlide {
+	display: flex;
+	justify-content: center;
+	align-items: stretch;
+	height: auto;
+	box-sizing: border-box;
+	padding: 10px;
+}
+
+.swiperButtonPrevCustom,
+.swiperButtonNextCustom {
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+	z-index: 20;
+	cursor: pointer;
+	background-color: rgba($brand-white, 0.9);
+	color: $primary-color-dark;
+	border-radius: 50%;
+	width: 44px;
+	height: 44px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border: 1px solid $neutral-lightest;
+	box-shadow: $box-shadow-md;
+	transition: background-color 0.2s ease, color 0.2s ease, opacity 0.2s ease, transform 0.2s ease;
+
+	svg {
+		font-size: 1rem;
+	}
+
+	&:hover:not(:disabled) {
+		background-color: $brand-white;
+		color: $primary-color;
+		transform: translateY(-50%) scale(1.05);
+	}
+
+	&:focus {
+		outline: 2px solid $primary-color;
+		outline-offset: 2px;
+	}
+}
+
+.swiperButtonPrevCustom {
+	left: -15px;
+
+	@include media-breakpoint-down(sm) {
+		left: 5px;
+	}
+}
+
+.swiperButtonNextCustom {
+	right: -15px;
+
+	@include media-breakpoint-down(sm) {
+		right: 5px;
+	}
+}
+
+.swiperButtonDisabled {
+	opacity: 0.4;
+	cursor: not-allowed;
+	background-color: $neutral-lightest;
+	color: $neutral-medium;
+
+	&:hover {
+		transform: translateY(-50%) scale(1);
+		background-color: $neutral-lightest;
+		color: $neutral-medium;
+	}
+}
+
+
+.swiperPaginationCustom {
+	position: relative;
+	bottom: auto;
+	margin-top: $spacer-lg;
+
+	:global(.swiper-pagination-bullet) {
+		background: $neutral-light;
+		opacity: 1;
+		width: 8px;
+		height: 8px;
+		margin: 0 $spacer-xs / 2;
+		transition: background-color 0.2s ease, transform 0.2s ease;
+	}
+
+	:global(.swiper-pagination-bullet-active) {
+		background: $primary-color;
+		transform: scale(1.1);
+	}
+}

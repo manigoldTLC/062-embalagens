@@ -1,173 +1,459 @@
-// src/components/Header/Header.module.scss
-@import '../../styles/variables'; // Ajuste o caminho
+@import '../../styles/variables';
 
 .header {
-	background-color: $primary-color; // Azul da marca
-	padding: $spacer-sm $spacer-md; // 12px 16px
-	box-shadow: $box-shadow-md;
-	position: sticky; // Faz o header ficar fixo no topo ao rolar
+	background-color: $primary-color;
+	position: sticky;
 	top: 0;
-	z-index: $zindex-sticky; // Garante que fique sobre outros elementos
+	z-index: $zindex-sticky;
 	width: 100%;
+	transition: box-shadow 0.3s ease-in-out;
+}
+
+.header.scrolled {
+	box-shadow: 0 2px 10px rgba($brand-black, 0.15);
 }
 
 .container {
-	max-width: $container-max-width-xl; // Definido em variables.scss
+	max-width: $container-max-width-xl;
 	margin: 0 auto;
+	padding-left: $spacer-md;
+	padding-right: $spacer-md;
+	width: 100%;
+}
+
+.topBar {
+	background-color: $primary-color-dark;
+	color: rgba($brand-white, 0.9);
+	padding: calc($spacer-xs - 1px) $spacer-md;
+	font-size: $font-size-sm * 0.88;
+	line-height: 1.4;
+	border-bottom: 1px solid rgba($brand-black, 0.15);
+
+	@include media-breakpoint-down(md) {
+		background-color: $primary-color;
+		border: none;
+	}
+}
+
+.topBarContainer {
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
+	gap: $spacer-md;
+	min-height: 32px;
+}
+
+.topBarLeft,
+.topBarCenter,
+.topBarRight {
+	display: flex;
+	align-items: center;
+	gap: $spacer-xs;
+
+	@include media-breakpoint-down(md) {
+		display: none;
+	}
+}
+
+.topBarLeft {
+	flex-shrink: 0;
+}
+
+.topBarCenter {
+	flex-grow: 1;
+	justify-content: center;
+	text-align: center;
+
+	p {
+		margin: 0;
+		font-size: $font-size-sm * 0.9;
+		color: rgba($brand-white, 0.85);
+	}
+
+	@include media-breakpoint-down(md) {
+		display: none;
+	}
+}
+
+.topBarRight {
+	flex-shrink: 0;
+	justify-content: flex-end;
+}
+
+.topBarLink {
+	color: rgba($brand-white, 0.85);
+	text-decoration: none;
+	display: flex;
+	align-items: center;
+	gap: $spacer-xs / 2;
+	padding: $spacer-xs / 1.5 $spacer-xs;
+	border-radius: $border-radius-sm;
+	transition: color 0.2s ease, background-color 0.2s ease;
+
+	svg {
+		font-size: 0.95em;
+		margin-bottom: -1px;
+	}
+
+	&:hover,
+	&:focus {
+		color: $brand-white;
+		background-color: rgba($brand-white, 0.1);
+	}
+}
+
+.mainNavWrapper {
+	background-color: $primary-color;
+	padding: $spacer-md $spacer-md;
+}
+
+.mainNavContainer {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	gap: $spacer-md;
+	min-height: 50px;
 }
 
 .logoLink {
-	display: inline-block; // Para que o link se ajuste à imagem
+	max-width: 120px;
+	height: 45px;
 
-	// A imagem do Next.js já tem estilos intrínsecos, não precisa de muito aqui
+	@include media-breakpoint-down(md) {
+		width: 65px;
+	}
+
 	img {
-		// Estilos para a tag img dentro do Link, se necessário (Next/Image pode não precisar)
-		display: block; // Remove espaço extra abaixo da imagem
+		width: 100%;
+		height: 100%;
+		object-fit: contain;
 	}
 }
 
 .navigation {
+	flex-grow: 1;
+	display: flex;
+	justify-content: center;
+	padding-left: $spacer-lg;
+	margin-right: $spacer-md;
+
+	@include media-breakpoint-down(xl) {
+		padding-left: $spacer-md;
+		justify-content: flex-start;
+	}
+
 	ul {
 		list-style: none;
 		margin: 0;
 		padding: 0;
 		display: flex;
 		align-items: center;
-	}
-
-	li {
-		margin-left: $spacer-lg; // 24px (espaço entre os links do desktop)
-	}
-
-	a {
-		color: $brand-white; // Texto branco
-		font-weight: $font-weight-medium;
-		text-decoration: none;
-		padding: $spacer-xs $spacer-sm; // 4px 8px
-		border-radius: $border-radius-sm;
-		@include transition(background-color, color);
-
-		&:hover,
-		&:focus {
-			background-color: rgba($brand-white, 0.15);
-			color: $brand-yellow; // Amarelo no hover/focus
-			text-decoration: none; // Evitar sublinhado padrão do browser
-		}
-
-		&.activeLink {
-		  background-color: $brand-yellow;
-		  color: $text-color-on-accent;
-		}
-	}
-
-	.cartLink {
-		position: relative; // Para posicionar o badge
-		display: flex; // Para alinhar o texto e o badge
-		align-items: center;
-		gap: $spacer-xs; // Espaço entre "Minha Lista" e o badge
-
-		// Se quiser um ícone de sacola/carrinho:
-		&::before {
-		  content: '\1F6CD'; // Exemplo de ícone de sacola de compras (pode variar a renderização)
-		  font-size: 1.2em;
-		  margin-right: $spacer-xs;
-		}
-	}
-
-	.itemCountBadge {
-		background-color: $brand-yellow; // Amarelo da marca para destaque
-		color: $text-color-on-accent; // Texto escuro sobre o amarelo
-		border-radius: 50%; // Círculo
-		padding: 2px 6px;
-		font-size: $font-size-sm * 0.85; // Pequeno
-		font-weight: $font-weight-bold;
-		line-height: 1;
-		min-width: 18px; // Largura mínima para o círculo
-		height: 18px; // Altura mínima para o círculo
-		display: inline-flex; // Para centralizar o número
-		justify-content: center;
-		align-items: center;
-		// position: absolute; // Se quiser posicionar sobre um ícone
-		// top: -5px;
-		// right: -10px;
+		gap: $spacer-xs;
 	}
 }
 
-// --- Estilos do Menu Mobile ---
+.navLink {
+	color: rgba($brand-white, 0.9);
+	font-weight: $font-weight-medium;
+	text-decoration: none;
+	padding: $spacer-sm $spacer-md;
+	border-radius: $border-radius-sm;
+	transition: background-color 0.2s ease, color 0.2s ease;
+	position: relative;
+	font-size: $font-size-base;
+	white-space: nowrap;
+
+	&:hover,
+	&:focus {
+		background-color: rgba($brand-white, 0.15);
+		color: $brand-white;
+		text-decoration: none;
+	}
+
+	&.activeLink {
+		color: $brand-white;
+		font-weight: $font-weight-semibold;
+
+		&::after {
+			content: '';
+			position: absolute;
+			bottom: 6px;
+			left: $spacer-md;
+			right: $spacer-md;
+			height: 3px;
+			background-color: $brand-yellow;
+			border-radius: 2px;
+		}
+	}
+}
+
+.rightControls {
+	display: flex;
+	align-items: center;
+	gap: $spacer-md;
+	margin-left: auto;
+
+	@include media-breakpoint-down(lg) {
+		gap: $spacer-sm;
+	}
+}
+
+.searchContainer {
+	position: relative;
+	display: flex;
+	align-items: center;
+	min-width: 220px;
+
+	@include media-breakpoint-down(md) {
+		min-width: auto;
+	}
+}
+
+.searchForm {
+	display: flex;
+	align-items: center;
+	background-color: rgba($brand-white, 0.9);
+	border: 1px solid transparent;
+	border-radius: $border-radius-pill;
+	padding-left: $spacer-sm;
+	width: 100%;
+	transition: border-color 0.2s ease, box-shadow 0.2s ease;
+
+	&:focus-within {
+		border-color: $brand-yellow;
+		background-color: $brand-white;
+		box-shadow: 0 0 0 3px rgba($brand-yellow, 0.3);
+	}
+}
+
+.searchInput {
+	background: transparent;
+	border: none;
+	outline: none;
+	color: $neutral-darkest;
+	font-size: $font-size-sm;
+	padding: calc($spacer-xs + 3px) 0 calc($spacer-xs + 3px) $spacer-xs;
+	flex-grow: 1;
+	min-width: 120px;
+
+	&::placeholder {
+		color: $neutral-medium;
+		opacity: 0.8;
+	}
+
+	&::-webkit-search-decoration,
+	&::-webkit-search-cancel-button,
+	&::-webkit-search-results-button,
+	&::-webkit-search-results-decoration {
+		-webkit-appearance: none;
+	}
+}
+
+.searchButton {
+	background: transparent;
+	border: none;
+	color: $neutral-dark;
+	cursor: pointer;
+	padding: $spacer-sm;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-size: 1.1rem;
+	transition: color 0.2s ease;
+	border-radius: 0 $border-radius-pill $border-radius-pill 0;
+
+	&:hover {
+		color: $primary-color-dark;
+	}
+}
+
+.headerActions {
+	display: flex;
+	align-items: center;
+	gap: $spacer-md;
+	flex-shrink: 0;
+}
+
+.actionButton {
+	color: $brand-white;
+	text-decoration: none;
+	display: flex;
+	align-items: center;
+	gap: $spacer-xs;
+	border-radius: $border-radius-sm;
+	transition: background-color 0.2s ease, color 0.2s ease, transform 0.1s ease;
+
+	svg {
+		font-size: 1.5rem;
+	}
+
+	&:hover,
+	&:focus {
+		color: $brand-white;
+		background-color: rgba($brand-white, 0.15);
+		text-decoration: none;
+	}
+
+	&:active {
+		transform: scale(0.95);
+	}
+}
+
+.cartIconWrapper {
+	position: relative;
+	display: flex;
+	align-items: center;
+}
+
+.itemCountBadge {
+	background-color: $brand-yellow;
+	color: $text-color-on-accent;
+	border-radius: 50%;
+	font-size: $font-size-sm * 0.8;
+	font-weight: $font-weight-bold;
+	line-height: 1;
+	position: absolute;
+	top: -7px;
+	right: -9px;
+	min-width: 18px;
+	height: 18px;
+	padding: 2px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	box-shadow: 0 0 0 1.5px $primary-color;
+}
+
 .mobileMenuButton {
-	display: none; // Escondido em telas maiores
+	display: none;
 	background: none;
 	border: none;
 	color: $brand-white;
-	font-size: 1.8rem; // Tamanho do ícone
+	font-size: 1.8rem;
 	cursor: pointer;
-	padding: $spacer-xs;
+	z-index: 1100;
 
-	&:focus {
-		outline: 2px solid $brand-yellow;
-		outline-offset: 2px;
+	@include media-breakpoint-down(lg) {
+		display: block;
+		position: absolute;
+		top: 15px;
+		right: $spacer-md;
 	}
 }
 
-.menuIcon {
-	// Estilo para os caracteres de ícone, se usar
-	display: block;
-	line-height: 1;
+.actionButtonText {
+	font-size: $font-size-base;
+	margin-left: $spacer-lg / 2;
+
+	@include media-breakpoint-down(lg) {
+		display: none;
+	}
 }
 
-// Media Query para o Menu Mobile
-@include media-breakpoint-down(md) {
+.mobileOnlyLink {
+	display: none;
+}
 
-	// Abaixo de 768px (ou o breakpoint que preferir para o menu mobile)
-	.mobileMenuButton {
-		display: block;
-		z-index: 1001; // Para ficar sobre o menu quando aberto
+@include media-breakpoint-down(lg) {
+	.topBarCenter {
+		display: none;
+	}
+
+	.topBarLeft span,
+	.topBarRight span {
+		display: none;
+	}
+
+	.topBarLeft,
+	.topBarRight {
+		gap: 0;
+	}
+
+	.mainNavContainer {
+		gap: $spacer-sm;
+		padding: 0;
 	}
 
 	.navigation {
-		// Estilos para o menu quando estiver mobile e fechado
-		position: absolute;
-		top: 0; // Altura do header (ex: 60px ou 100% do header)
-		left: -100%; // Começa fora da tela
-		width: 75%; // Ou 250px, etc.
-		max-width: 300px;
-		height: 100vh; // Ocupa a altura toda da tela
-		background-color: darken($primary-color, 5%); // Um pouco mais escuro que o header
-		box-shadow: $box-shadow-lg;
-		padding-top: $spacer-xxl; // Espaço para o botão de fechar e logo
 		padding-left: $spacer-md;
-		padding-right: $spacer-md;
-		transition: left 0.3s ease-in-out;
-		z-index: 1000; // Para ficar sobre o conteúdo da página
+		justify-content: flex-start;
+		order: 3;
+		display: none;
+		flex-direction: column;
+		position: fixed;
+		top: 0;
+		left: -100%;
+		width: 65%;
+		max-width: 300px;
+		height: 100vh;
+		background-color: $primary-color-dark;
+		box-shadow: 2px 0 10px rgba(0, 0, 0, 0.3);
+		padding: $spacer-xxl $spacer-md $spacer-md $spacer-md;
+		transition: left 0.35s ease-in-out;
+		z-index: 1050;
 
 		&.isOpen {
-			left: 0; // Mostra o menu
+			display: flex;
+			left: 0;
 		}
 
 		ul {
-			flex-direction: column; // Links empilhados verticalmente
+			flex-direction: column;
 			align-items: flex-start;
 			width: 100%;
-		}
+			gap: 0;
 
-		li {
-			margin-left: 0;
-			width: 100%;
-		}
-
-		a {
-			display: block; // Para ocupar a largura toda do item da lista
-			padding: $spacer-md $spacer-sm; // Mais padding vertical
-			width: 100%;
-			border-bottom: 1px solid rgba($brand-white, 0.1);
-
-			&:hover,
-			&:focus {
-				background-color: rgba($brand-white, 0.1);
+			li {
+				width: 100%;
 			}
 		}
+
+		.navLink {
+			display: block;
+			padding: $spacer-md;
+			width: 100%;
+			border-bottom: 1px solid rgba($brand-white, 0.1);
+			font-size: $font-size-lg;
+			color: $brand-white;
+
+			&:hover,
+			&:focus,
+			&.activeLink {
+				background-color: rgba($brand-white, 0.15);
+				color: $brand-yellow;
+			}
+
+			&.activeLink::after {
+				content: none;
+			}
+		}
+	}
+
+	.mobileOnlyLink {
+		display: block !important;
+	}
+
+	.rightControls {
+		flex-grow: 1;
+		justify-content: flex-end;
+	}
+
+	.searchContainer {
+
+		// No mobile, o dropdown de sugestões é controlado pelo SearchSuggestions.module.scss
+		// A lógica de esconder o dropdown quando o menu mobile está aberto:
+		.navigation.isOpen~.rightControls & .suggestionsDropdown {
+			// Este seletor ainda é válido
+			display: none;
+		}
+	}
+
+	.headerActions {
+		gap: $spacer-sm;
+	}
+
+	.mobileMenuButton {
+		display: block;
+		order: 2;
 	}
 }

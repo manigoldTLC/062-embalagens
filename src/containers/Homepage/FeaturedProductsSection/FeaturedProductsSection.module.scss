@@ -1,0 +1,85 @@
+@import '../../../styles/variables';
+
+.productSection {
+	padding: $spacer-xxl 0 $spacer-xxl 0;
+	background-color: $brand-white;
+
+	@include media-breakpoint-up(lg) {
+		padding: ($spacer-xxl * 1.5) 0 $spacer-xxl 0;
+	}
+}
+
+.container {
+	max-width: $container-max-width-xl;
+	margin: 0 auto;
+	padding: 0 $spacer-md;
+
+	@include media-breakpoint-up(lg) {
+		padding: 0 $spacer-lg;
+	}
+}
+
+.sectionHeader {
+	margin-bottom: $spacer-xl;
+	border-bottom: 1px solid $primary-color-light;
+
+	h2 {
+		font-size: $h2-font-size / 1.2;
+		color: $neutral-darkest;
+		font-weight: $font-weight-bold;
+		margin-bottom: $spacer-xs;
+	}
+
+	.subtitle {
+		font-size: $font-size-sm;
+		color: $neutral-dark;
+		margin: 0 auto $spacer-md auto;
+		line-height: 1.6;
+	}
+
+	@include media-breakpoint-up(md) {
+		h2 {
+			font-size: $h2-font-size * 1.2;
+		}
+
+		.subtitle {
+			font-size: $font-size-lg;
+		}
+	}
+}
+
+.itemsGrid {
+	display: grid;
+	gap: 0.5rem;
+	grid-template-columns: repeat(2, 1fr);
+
+	@include media-breakpoint-up(md) {
+		grid-template-columns: repeat(4, 1fr);
+		gap: 1rem;
+	}
+}
+
+.sectionAction {
+	margin-top: $spacer-xl * 1.5;
+	text-align: center;
+}
+
+.ctaButton {
+	@include button-base;
+	background-color: $primary-color;
+	color: $text-color-on-primary;
+	border-color: $primary-color;
+	padding: $spacer-sm $spacer-xl;
+	font-weight: $font-weight-semibold;
+	text-transform: uppercase;
+	letter-spacing: 0.5px;
+	border-radius: $border-radius-md;
+
+	&:hover,
+	&:focus {
+		background-color: $primary-color-dark;
+		color: $text-color-on-primary;
+		border-color: $primary-color-dark;
+		box-shadow: $box-shadow-sm;
+	}
+}

@@ -1,0 +1,110 @@
+@import '../../../styles/variables';
+
+.filterDropdown {
+	position: relative;
+	display: inline-block;
+}
+
+.dropdownButton {
+	@include button-base; // Removemos o mixin para estilizar do zero ou usamos um mais básico
+	background-color: $brand-white;
+	color: $neutral-dark;
+	border: 1px solid $neutral-lighter; // Borda mais sutil
+	padding: calc($spacer-xs + 2px) $spacer-sm; // Padding como na referência
+	font-size: $font-size-sm;
+	font-weight: $font-weight-normal;
+	border-radius: $border-radius-md; // Levemente arredondado
+	cursor: pointer;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	min-width: 130px; // Largura mínima para os botões de filtro
+	text-align: left;
+	transition: border-color 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+
+	span {
+		// Estilo para o texto dentro do botão (ex: "Categoria: Todas")
+		white-space: nowrap;
+		overflow: hidden;
+		text-overflow: ellipsis;
+		margin-right: $spacer-xs; // Espaço antes da seta
+
+		strong {
+			// Para o valor selecionado
+			font-weight: $font-weight-medium;
+			color: $neutral-darkest;
+		}
+	}
+
+	svg {
+		// Estilo para o ícone de seta (FaChevronDown/Up)
+		margin-left: auto; // Empurra a seta para a direita
+		font-size: 0.75em; // Seta menor
+		color: $neutral-medium;
+		flex-shrink: 0;
+	}
+
+	&:hover,
+	&.activeButton {
+		// Classe para quando o dropdown está aberto
+		border-color: $neutral-medium;
+		background-color: $neutral-ultra-light; // Leve mudança de fundo no hover
+	}
+
+	&:focus-visible {
+		// Usar focus-visible para acessibilidade do teclado
+		outline: none;
+		border-color: $primary-color;
+		box-shadow: 0 0 0 2px rgba($primary-color, 0.25);
+	}
+}
+
+.dropdownMenu {
+	position: absolute;
+	top: calc(100% + 6px); // Pequeno espaço abaixo do botão
+	left: 0;
+	background-color: $brand-white;
+	border: 1px solid $neutral-lightest;
+	border-radius: $border-radius-md;
+	box-shadow: $box-shadow-lg; // Sombra pronunciada para o dropdown
+	z-index: $zindex-dropdown;
+	min-width: 200px; // Largura mínima do dropdown
+	max-height: 280px; // Altura máxima antes de scroll
+	overflow-y: auto;
+	list-style: none;
+	padding: $spacer-xs 0; // Padding vertical
+	margin: 0;
+	opacity: 0; // Para animação de fade-in
+	visibility: hidden;
+	transform: translateY(-10px);
+	transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s ease;
+
+	// Estilo para dropdown aberto (controlado pelo estado 'isOpen' no JS,
+	// mas aqui garantimos que ele apareça quando o botão tem a classe ou estado ativo)
+	.filterDropdown:has(.dropdownButton[aria-expanded="true"]) & {
+		// Seletor :has para quando o botão está expandido
+		opacity: 1;
+		visibility: visible;
+		transform: translateY(0);
+	}
+}
+
+.dropdownMenu li {
+	padding: $spacer-sm $spacer-md;
+	font-size: $font-size-sm;
+	color: $neutral-darkest;
+	cursor: pointer;
+	white-space: nowrap;
+	transition: background-color 0.15s ease, color 0.15s ease;
+
+	&:hover {
+		background-color: $neutral-ultra-light;
+		color: $primary-color;
+	}
+
+	&.activeOption {
+		background-color: $primary-color-light; // Fundo para item ativo
+		color: $primary-color-dark;
+		font-weight: $font-weight-semibold;
+	}
+}

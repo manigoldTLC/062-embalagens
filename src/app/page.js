@@ -1,10 +1,10 @@
-// src/app/page.js
-// Metadata permanece o mesmo
-
+import BestSellersSection from "@/containers/Homepage/BestSellersSection/BestSellersSection";
 import FeaturedCategoriesSection from "@/containers/Homepage/FeaturedCategoriesSection/FeaturedCategoriesSection";
+import FeaturedProductsSection from "@/containers/Homepage/FeaturedProductsSection/FeaturedProductsSection";
 import HeroSection from "@/containers/Homepage/HeroSection/HeroSection";
+import HomepageContactSection from "@/containers/Homepage/HomepageContactSection/HomepageContactSection";
+import NewArrivalsSection from "@/containers/Homepage/NewArrivalsSection/NewArrivalsSection";
 
-// import styles from './page.module.scss'; // Pode não ser mais necessário ou ter poucos estilos
 
 export const metadata = {
   title: '062 Embalagens - Loja de Embalagens e Artigos para Festa em Goiânia',
@@ -28,6 +28,10 @@ export default function HomePage() {
     <>
       <HeroSection />
       <FeaturedCategoriesSection />
+      <NewArrivalsSection />
+      <FeaturedProductsSection />
+      <BestSellersSection />
+      <HomepageContactSection />
     </>
   );
 }

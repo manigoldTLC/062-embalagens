@@ -1,0 +1,110 @@
+@import '../../styles/variables';
+
+.bannerWrapper {
+	width: 100%;
+	padding: $spacer-lg (
+		$spacer-md * 1.5
+	); // Padding vertical e horizontal
+// A cor de fundo será passada via prop, default é cinza claro.
+// Para o estilo da referência, passe $brand-white ou $neutral-ultra-light.
+margin-bottom: $spacer-xl;
+// A referência não parece ter sombra no banner em si.
+// box-shadow: $box-shadow-sm;
+}
+
+.bannerGrid {
+	max-width: $container-max-width-lg; // Mantém o conteúdo alinhado com o resto da página
+	margin: 0 auto;
+	display: flex;
+	flex-direction: column; // Padrão para mobile
+	align-items: center; // Centraliza no mobile
+	gap: $spacer-lg;
+
+	@include media-breakpoint-up(md) {
+		// Layout de duas colunas a partir de tablet
+		flex-direction: row;
+		justify-content: space-between; // Espaça as colunas
+		align-items: center; // Alinha verticalmente
+		gap: $spacer-xl; // Espaço maior entre colunas no desktop
+	}
+}
+
+.textContent {
+	flex: 1 1 55%; // Coluna de texto ocupa um pouco mais
+	display: flex;
+	flex-direction: column;
+	align-items: center; // Centraliza texto no mobile
+	text-align: center; // Centraliza texto no mobile
+
+	@include media-breakpoint-up(md) {
+		align-items: flex-start; // Alinha à esquerda no desktop
+		text-align: left;
+	}
+}
+
+.title {
+	font-size: $h1-font-size * 0.9; // Título grande e impactante
+	font-weight: $font-weight-bold; // Negrito forte
+	line-height: 1.2;
+	margin-bottom: $spacer-sm;
+	// A cor do texto virá da prop textColor, default é escuro.
+	// Exemplo: color: $neutral-darkest;
+
+	@include media-breakpoint-up(lg) {
+		font-size: $h1-font-size * 1.1;
+	}
+}
+
+.subtitle {
+	font-size: $font-size-base * 1.05; // Um pouco maior que o texto base
+	line-height: 1.6;
+	margin-bottom: $spacer-lg; // Bom espaço antes do botão
+	max-width: 45ch; // Limita largura para leitura
+	opacity: 0.85; // Um pouco mais suave se a cor do texto for escura
+	// A cor do texto virá da prop textColor.
+	// Exemplo: color: $neutral-dark;
+}
+
+.ctaButton {
+	@include button-base;
+	// As cores virão das props buttonBackgroundColor e buttonTextColor
+	// Exemplo para o estilo da referência (botão escuro, texto claro):
+	// background-color: $neutral-darkest;
+	// color: $brand-white;
+	// border-color: $neutral-darkest; 
+	padding: $spacer-sm $spacer-xl; // Padding do botão da referência
+	font-size: $font-size-sm; // Fonte um pouco menor, como na referência
+	font-weight: $font-weight-semibold;
+	text-transform: uppercase; // Caixa alta
+	letter-spacing: 0.8px;
+	border-radius: $border-radius-sm; // Bem arredondado
+	text-decoration: none;
+	border: none;
+	box-shadow: $box-shadow-sm;
+
+	&:hover,
+	&:focus {
+		box-shadow: $box-shadow-md;
+		background-color: $brand-yellow-dark;
+	}
+}
+
+.imageContent {
+	flex: 1 1 45%; // Coluna da imagem
+	width: 100%; // Para ocupar a coluna no mobile
+	max-width: 450px; // Limita o tamanho da imagem para não ficar enorme
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	@include media-breakpoint-up(md) {
+		justify-content: flex-end; // Alinha imagem à direita no desktop
+	}
+}
+
+.bannerImage {
+	max-width: 100%;
+	height: auto;
+	object-fit: contain; // Para a imagem aparecer inteira, como na referência
+	border-radius: $border-radius-md; // Leve arredondamento na imagem
+}

@@ -1,0 +1,139 @@
+@import '../../styles/variables';
+
+.suggestionsDropdown {
+	position: absolute;
+	top: calc(100% + 6px);
+	left: 0;
+	width: 100%;
+	background-color: $brand-white;
+	border: 1px solid $neutral-light;
+	border-top: none;
+	border-radius: 0 0 $border-radius-md $border-radius-md;
+	box-shadow: $box-shadow-lg;
+	padding: $spacer-sm;
+	z-index: $zindex-dropdown;
+	max-height: 350px;
+	overflow-y: auto;
+	text-align: left;
+}
+
+.suggestionSection {
+	margin-bottom: $spacer-sm;
+
+	&:last-child {
+		margin-bottom: 0;
+	}
+}
+
+.suggestionTitle {
+	font-size: $font-size-sm * 0.9;
+	font-weight: $font-weight-semibold;
+	color: $neutral-dark;
+	text-transform: uppercase;
+	letter-spacing: 0.5px;
+	margin-bottom: $spacer-xs;
+	padding: $spacer-xs / 2 $spacer-xs;
+}
+
+.suggestionList {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+
+.suggestionList li {
+	&:last-child {
+		margin-bottom: 0;
+	}
+}
+
+.suggestionItemLink {
+	display: block;
+	padding: $spacer-xs $spacer-sm;
+	border-radius: $border-radius-sm;
+	text-decoration: none;
+	color: $neutral-darkest;
+	transition: background-color 0.15s ease;
+	font-size: $font-size-base;
+	display: flex;
+	align-items: center;
+	gap: $spacer-sm;
+
+	&:hover,
+	&:focus {
+		background-color: $neutral-ultra-light;
+		color: $primary-color;
+	}
+}
+
+.suggestionCategoryIcon {
+	font-size: 1em;
+	color: $primary-color-light;
+	margin-right: $spacer-xs / 2;
+	flex-shrink: 0;
+}
+
+.productSuggestionLink {
+	display: flex;
+	align-items: center;
+	gap: $spacer-sm;
+	padding: $spacer-sm;
+	border-radius: $border-radius-sm;
+	text-decoration: none;
+	transition: background-color 0.15s ease;
+
+	&:hover,
+	&:focus {
+		background-color: $neutral-ultra-light;
+	}
+}
+
+.suggestionImageWrapper {
+	width: 40px;
+	height: 40px;
+	flex-shrink: 0;
+	border-radius: $border-radius-sm;
+	overflow: hidden;
+	background-color: $neutral-lightest;
+}
+
+.suggestionImage {
+	display: block;
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+
+.suggestionText {
+	display: flex;
+	flex-direction: column;
+	gap: 1px;
+	overflow: hidden;
+	flex-grow: 1;
+}
+
+.suggestionName {
+	font-size: $font-size-sm;
+	font-weight: $font-weight-normal;
+	color: $neutral-darkest;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+
+	.productSuggestionLink:hover & {
+		color: $primary-color;
+	}
+}
+
+.suggestionPrice {
+	font-size: $font-size-sm * 0.9;
+	color: $neutral-dark;
+}
+
+.noResults {
+	padding: $spacer-md;
+	text-align: center;
+	color: $neutral-medium;
+	font-style: italic;
+	font-size: $font-size-sm;
+}

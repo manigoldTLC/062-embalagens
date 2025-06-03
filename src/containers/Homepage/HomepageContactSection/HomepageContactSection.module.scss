@@ -1,0 +1,252 @@
+@import '../../../styles/variables';
+
+.contactSection {
+	background-color: $primary-color-dark;
+	color: $brand-white;
+	padding: $spacer-xxl $spacer-md;
+
+	@include media-breakpoint-up(lg) {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		height: 100vh;
+	}
+}
+
+.container {
+	max-width: $container-max-width-xl;
+	margin: 0 auto;
+	display: flex;
+	flex-direction: column;
+	gap: $spacer-xl;
+
+	@include media-breakpoint-up(lg) {
+		flex-direction: row;
+		align-items: flex-start;
+		gap: $spacer-xxl * 1.5;
+	}
+}
+
+.leftColumn,
+.rightColumn {
+	flex: 1;
+}
+
+.leftColumn {
+	display: flex;
+	flex-direction: column;
+	text-align: left;
+
+	@include media-breakpoint-down(md) {
+		text-align: center;
+		align-items: center;
+		margin-bottom: $spacer-xl;
+	}
+}
+
+.sectionTitle {
+	font-size: $h2-font-size;
+	font-weight: $font-weight-bold;
+	margin-bottom: $spacer-lg;
+	color: $brand-white;
+	line-height: 1.2;
+
+	@include media-breakpoint-up(lg) {
+		font-size: $h2-font-size * 1.4;
+	}
+}
+
+.sectionDescription {
+	font-size: $font-size-sm;
+	line-height: 1.8;
+	color: rgba($brand-white, 0.85);
+	margin-bottom: $spacer-xl * 1.5;
+	max-width: 45ch;
+
+	@include media-breakpoint-down(md) {
+		max-width: 100%;
+	}
+
+	@include media-breakpoint-up(lg) {
+		font-size: $font-size-lg;
+	}
+}
+
+.contactInfo {
+	display: flex;
+	flex-direction: column;
+	gap: $spacer-md;
+	margin-bottom: $spacer-lg;
+
+	@include media-breakpoint-down(md) {
+		align-items: flex-start;
+		max-width: 350px;
+		width: 100%;
+	}
+}
+
+.infoItem {
+	display: flex;
+	align-items: center;
+	gap: $spacer-md;
+	font-size: $font-size-sm;
+	color: $brand-white;
+
+	.icon {
+		font-size: 1.2rem;
+		color: $brand-yellow;
+		flex-shrink: 0;
+	}
+
+	.link,
+	span {
+		color: $brand-white;
+		text-decoration: none;
+		opacity: 0.9;
+		transition: opacity 0.2s ease;
+		line-height: 1.5;
+		text-align: left;
+	}
+
+	.link:hover,
+	.link:focus {
+		opacity: 1;
+		text-decoration: underline;
+	}
+
+	@include media-breakpoint-up(lg) {
+		font-size: $font-size-base;
+
+		.icon {
+			font-size: 1.5rem;
+		}
+	}
+}
+
+.moreInfoLinkWrapper {
+	margin-top: $spacer-lg;
+
+	@include media-breakpoint-down(md) {
+		text-align: center;
+	}
+}
+
+.moreInfoLink {
+	color: $brand-yellow;
+	font-size: $font-size-sm;
+	font-weight: $font-weight-medium;
+	text-decoration: none;
+	display: inline-flex;
+	align-items: center;
+	gap: $spacer-xs;
+	padding: $spacer-xs $spacer-sm;
+	border-radius: $border-radius-sm;
+	transition: background-color 0.2s ease, color 0.2s ease;
+
+	@include media-breakpoint-up(lg) {
+		font-size: $font-size-base;
+	}
+
+	&:hover,
+	&:focus {
+		color: lighten($brand-yellow, 10%);
+		background-color: rgba($brand-white, 0.05);
+		text-decoration: none;
+	}
+
+	.arrowIcon {
+		font-size: 0.9em;
+		transition: transform 0.2s ease;
+	}
+
+	&:hover .arrowIcon,
+	&:focus .arrowIcon {
+		transform: translateX(4px);
+	}
+}
+
+
+.formWrapper {
+	background-color: $brand-white;
+	color: $neutral-darkest;
+	border-radius: $border-radius-lg;
+	padding: $spacer-xl;
+	box-shadow: 0 10px 30px rgba($brand-black, 0.1);
+}
+
+.formTitle {
+	font-size: $h3-font-size * 1.1;
+	font-weight: $font-weight-semibold;
+	margin-bottom: $spacer-lg;
+	text-align: left;
+	color: $primary-color-dark;
+}
+
+.contactForm {
+	display: flex;
+	flex-direction: column;
+	gap: $spacer-md;
+}
+
+.formGroup {
+	display: flex;
+	flex-direction: column;
+	text-align: left;
+}
+
+.label {
+	font-size: $font-size-sm;
+	font-weight: $font-weight-medium;
+	color: $neutral-dark;
+	margin-bottom: $spacer-xs / 2;
+}
+
+.input,
+.textarea {
+	padding: $spacer-sm (
+		$spacer-sm + $spacer-xs / 2
+	);
+border: 1px solid $neutral-light;
+border-radius: $border-radius-sm;
+font-size: $font-size-base;
+color: $neutral-darkest;
+background-color: $neutral-ultra-light;
+transition: border-color 0.2s ease, box-shadow 0.2s ease;
+
+&::placeholder {
+	color: $neutral-medium;
+	opacity: 0.7;
+}
+
+&:focus {
+	outline: none;
+	border-color: $primary-color;
+	background-color: $brand-white;
+	box-shadow: 0 0 0 3px rgba($primary-color, 0.15);
+}
+}
+
+.textarea {
+	resize: vertical;
+	min-height: 120px;
+}
+
+.submitButton {
+	@include button-base;
+	background-color: $brand-yellow;
+	color: $text-color-on-accent;
+	font-weight: $font-weight-bold;
+	padding: $spacer-md $spacer-lg;
+	border-radius: $border-radius-md;
+	border: none;
+	cursor: pointer;
+	transition: background-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+	margin-top: $spacer-sm;
+
+	&:hover,
+	&:focus {
+		background-color: darken($brand-yellow, 10%);
+		transform: translateY(-2px);
+		box-shadow: $box-shadow-md;
+	}
+}

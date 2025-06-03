@@ -1,32 +1,57 @@
-// src/containers/HomePage/FeaturedCategoriesSection/FeaturedCategoriesSection.module.scss
-@import '../../../styles/variables'; // Ajuste o caminho para suas variáveis
+@import '../../../styles/variables';
 
-.featuredCategories {
-  padding: $spacer-xxl $spacer-md;
-  background-color: $section-bg-light;
+.featured-categories {
+	padding: $spacer-xl 0 $spacer-xxl 0;
+	background-color: $brand-white;
 
-  h2 {
-    text-align: center;
-    font-size: $h2-font-size;
-    margin-bottom: $spacer-xl;
-    color: $primary-color-dark;
-  }
-}
+	&__container {
+		max-width: $container-max-width-xl;
+		margin: 0 auto;
+		padding: 0 $spacer-md;
+		box-sizing: border-box;
 
-.categoriesGrid {
-  display: grid;
-  gap: $spacer-lg;
-  max-width: $container-max-width-xl;
-  margin: 0 auto;
-  grid-template-columns: 1fr;
+		@include media-breakpoint-up(lg) {
+			padding: 0 $spacer-lg;
+		}
+	}
 
-  @include media-breakpoint-up(sm) {
-    grid-template-columns: repeat(2, 1fr);
-  }
+	&__header {
+		margin-bottom: $spacer-xl;
 
-  @include media-breakpoint-up(lg) {
-    // Considerar 4 colunas se o número de categorias crescer, ou manter 3
-    // grid-template-columns: repeat(3, 1fr);
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); // Mais flexível
-  }
+		h2 {
+			font-size: $h2-font-size / 1.2;
+			color: $neutral-darkest;
+			font-weight: $font-weight-bold;
+			margin-bottom: $spacer-xs;
+		}
+
+		&__subtitle {
+			font-size: $font-size-sm;
+			color: $neutral-dark;
+			margin: 0 auto $spacer-md auto;
+			line-height: 1.6;
+		}
+
+		@include media-breakpoint-up(md) {
+			h2 {
+				font-size: $h2-font-size * 1.2;
+			}
+
+			&__subtitle {
+				font-size: $font-size-lg;
+			}
+		}
+	}
+
+	&__grid {
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+		gap: $spacer-sm;
+		min-width: 0;
+
+		@include media-breakpoint-up(md) {
+			grid-template-columns: repeat(4, 1fr);
+			gap: $spacer-md;
+		}
+	}
 }
