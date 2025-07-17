@@ -134,7 +134,7 @@
 	flex-grow: 1;
 	display: flex;
 	justify-content: center;
-	padding-left: $spacer-lg;
+	padding-left: $spacer-lg * 11.5;
 	margin-right: $spacer-md;
 
 	@include media-breakpoint-down(xl) {

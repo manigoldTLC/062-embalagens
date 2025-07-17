@@ -2,9 +2,9 @@
 @import '../../../styles/variables'; // Ajuste o caminho
 
 .productDetailContainer {
-	max-width: $container-max-width-lg; // Ou xl, dependendo do layout desejado
+	max-width: $container-max-width-xl; // Ou xl, dependendo do layout desejado
 	margin: $spacer-lg auto;
-	padding: 0 $spacer-md;
+	padding: 0 1.5rem;
 }
 
 .breadcrumb {

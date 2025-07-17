@@ -1,4 +1,3 @@
-// src/app/categoria/[categorySlug]/CategoryProductsClient.js
 'use client';
 
 import { useEffect, useState, useMemo, useCallback } from 'react';

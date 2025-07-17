@@ -9,7 +9,7 @@ const heroSlidesData = [
 	{
 		id: 1,
 		title: "Embalagens que Falam por Você",
-		subtitle: "Descubra nossa variedade de caixas, sacolas e acessórios para presentes que encantam e surpreendem.",
+		subtitle: "Descubra nossa variedade de embalagens, sacolas e acessórios para presentes que encantam e surpreendem.",
 		imageUrl: "/images/hero/img1.png",
 		imageAlt: "Embalagens de presente criativas e sofisticadas",
 		ctaText: "Explorar Embalagens",

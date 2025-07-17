@@ -7,7 +7,7 @@ import ProductCard from '@/components/ProductCard/ProductCard';
 import productsData from '@/data/products.json';
 import styles from './busca.module.scss';
 import FilterBarContainer from '@/containers/BuscaPage/FilterBarContainer/FilterBarContainer';
-import PromotionalBanner from '@/components/PromotionalBanner/PromotionalBanner';
+// import PromotionalBanner from '@/components/PromotionalBanner/PromotionalBanner';
 
 
 export default function SearchResultsClient() {
@@ -63,18 +63,18 @@ export default function SearchResultsClient() {
 		setIsLoading(false);
 	}, [query, selectedCategory, sortOption, allCategories]);
 
-	const bannerData = {
-		title: "Super Oferta em Embalagens Selecionadas!",
-		subtitle: "Descontos de até 30% para deixar seus presentes e produtos ainda mais especiais.",
-		ctaText: "Conferir Ofertas",
-		ctaLink: "/produtos?filtro=ofertas-embalagens",
-		imageUrl: "/images/hero/img1.png",
-		imageAlt: "Embalagens em promoção",
-		backgroundColor: "#1D3A9B",  
-		textColor: "#FFFFFF",
-		buttonTextColor: "#1A1A1A", 
-		buttonBackgroundColor: "#FFD200"
-	};
+	// const bannerData = {
+	// 	title: "Super Oferta em Embalagens Selecionadas!",
+	// 	subtitle: "Descontos de até 30% para deixar seus presentes e produtos ainda mais especiais.",
+	// 	ctaText: "Conferir Ofertas",
+	// 	ctaLink: "/produtos?filtro=ofertas-embalagens",
+	// 	imageUrl: "/images/hero/img1.png",
+	// 	imageAlt: "Embalagens em promoção",
+	// 	backgroundColor: "#1D3A9B",  
+	// 	textColor: "#FFFFFF",
+	// 	buttonTextColor: "#1A1A1A", 
+	// 	buttonBackgroundColor: "#FFD200"
+	// };
 
 	if (isLoading && query) {
 		return <div className={styles.loadingState}>Buscando produtos...</div>;
@@ -100,7 +100,7 @@ export default function SearchResultsClient() {
 
 	return (
 		<div className={styles.buscaPageContainer}>
-			<PromotionalBanner {...bannerData} />
+			{/* <PromotionalBanner {...bannerData} /> */}
 
 			<FilterBarContainer
 				categories={allCategories.filter(cat => cat.id !== 'embalagens-geral')}

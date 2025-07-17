@@ -44,20 +44,6 @@ const FilterBarContainer = ({
 						defaultLabel={`Todas ${categoryFilterLabel === "Categoria" ? "as Categorias" : "as Subcategorias"}`}
 					/>
 				)}
-				<FilterDropdownButton
-					label="Preço"
-					options={placeholderFilterOptions}
-					selectedValue=""
-					onValueChange={() => { }}
-					defaultLabel="Todos"
-				/>
-				<FilterDropdownButton
-					label="Cor"
-					options={placeholderFilterOptions}
-					selectedValue=""
-					onValueChange={() => { }}
-					defaultLabel="Todas"
-				/>
 			</div>
 			<div className={styles.sortContainer}>
 				<FilterDropdownButton

@@ -145,7 +145,6 @@ export default function Header() {
 						<ul>
 							<li><NavLink href="/" onClick={closeMobileMenu} exact={true}>Início</NavLink></li>
 							<li><NavLink href="/produtos" onClick={closeMobileMenu}>Produtos</NavLink></li>
-							<li><NavLink href="/categoria/artigos-de-festa" onClick={closeMobileMenu}>Categorias</NavLink></li>
 							<li><NavLink href="/sobre" onClick={closeMobileMenu}>Sobre Nós</NavLink></li>
 							<li><NavLink href="/contato" onClick={closeMobileMenu}>Contato</NavLink></li>
 						</ul>
@@ -177,7 +176,6 @@ export default function Header() {
 						<div className={styles.headerActions}>
 							<Link href="/meu-pedido" className={`${styles.actionButton} ${styles.cartLink}`}>
 								<span className={styles.cartIconWrapper}><BsBag />{itemCount > 0 && <span className={styles.itemCountBadge}>{itemCount}</span>}</span>
-								<span className={styles.actionButtonText}>Minha Lista</span>
 							</Link>
 						</div>
 					</div>

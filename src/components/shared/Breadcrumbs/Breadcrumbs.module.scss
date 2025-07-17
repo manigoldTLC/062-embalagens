@@ -1,0 +1,47 @@
+@import '../../../styles/variables';
+
+.breadcrumbs {
+  padding: $spacer-sm 0;
+  margin-bottom: $spacer-md;
+}
+
+.breadcrumbs__list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: $spacer-xs;
+}
+
+.breadcrumbs__item {
+  display: flex;
+  align-items: center;
+  font-size: $font-size-sm * 0.9;
+  color: $neutral-dark;
+}
+
+.breadcrumbs__link {
+  color: $neutral-dark;
+  text-decoration: none;
+  transition: color 0.2s ease;
+  &:hover, &:focus {
+    color: $primary-color;
+    text-decoration: underline;
+    outline: none;
+  }
+}
+
+.breadcrumbs__current {
+  font-weight: $font-weight-normal;
+  color: $neutral-medium;
+}
+
+.breadcrumbs__separator {
+  display: flex;
+  align-items: center;
+  color: $neutral-light;
+  margin: 0 $spacer-xs / 2;
+  font-size: 0.7em; // Ícone do separador menor
+}
