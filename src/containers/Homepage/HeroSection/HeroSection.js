@@ -45,7 +45,7 @@ const HeroSection = () => {
 		loop: true,
 		pagination: { clickable: true, el: `.${styles.heroPagination}` },
 		autoplay: {
-			delay: 10000,
+			delay: 4000,
 			disableOnInteraction: false,
 			pauseOnMouseEnter: true,
 		},
